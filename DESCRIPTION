@@ -1,0 +1,63 @@
+Package: massqc
+Type: Package
+Title: Comprehensitive tools for raw metabolomics data processing
+Version: 0.0.1
+Date: 2021-11-30
+Authors@R: c(
+    person("Xiaotao", "Shen", , "shenxt1990@163.com", role = c("aut", "cre"), 
+      comment = c(ORCID = "0000-0002-9608-9964")
+    )
+    )
+Maintainer: Xiaotao Shen<shenxt1990@163.com>
+Description: This package is used to do quality control of untargeted metabolomics data.
+LazyData: true
+Depends: R (>= 3.5)
+Imports:
+    BiocParallel,
+    cli,
+    crayon,
+    clisymbols,
+    dplyr,
+    ggplot2,
+    ggsci,
+    ggfortify,
+    graphics,
+    grDevices,
+    magrittr,
+    pbapply,
+    plyr,
+    purrr,
+    patchwork,
+    snow,
+    tidyverse,
+    methods,
+    pander,
+    utils,
+    stats,
+    readr,
+    readxl,
+    RColorBrewer,
+    plotly,
+    stringr,
+    tibble,
+    tidyr,
+    tinytools,
+    massdataset,
+    Biobase,
+    rstudioapi,
+    BiocGenerics
+License: GPL-2 | file LICENSE
+URL: https://github.com/tidymass/massqc
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown,
+    BiocStyle,
+    RUnit
+VignetteBuilder: knitr
+Note:
+biocViews: Metabolomics, MassSpectrometry, Data processing
+Encoding: UTF-8
+Remotes: 
+    tidymass/tinytools
+    tidymass/massdataset
