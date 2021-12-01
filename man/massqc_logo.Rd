@@ -9,6 +9,9 @@ massqc_logo()
 \description{
 massqc_logo
 }
+\examples{
+massqc_logo()
+}
 \author{
 Xiaotao Shen
 \email{shenxt@stanford.edu}

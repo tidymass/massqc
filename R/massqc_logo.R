@@ -27,6 +27,8 @@
 #' @importFrom stats coefficients lm loess median predict 
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @export
+#' @examples 
+#' massqc_logo()
 
 massqc_logo <- function(){
   cat(crayon::green("Thank you for using massqc_logo!\n"))

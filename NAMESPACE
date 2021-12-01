@@ -2,6 +2,7 @@
 
 export(massqc_logo)
 export(massqc_packages)
+export(sample_boxplot)
 import(ggplot2)
 import(patchwork)
 importFrom(Biobase,featureData)

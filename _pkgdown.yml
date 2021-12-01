@@ -1,0 +1,60 @@
+url: https://tidymass.github.io/massqc/
+
+home:
+  strip_header: false
+  title: massqc
+  links:
+  - text: Find me
+    href: https://www.shenxt.info/
+
+authors:
+  Xiaotao Shen:
+    href: https://www.shenxt.info/
+
+development:
+  mode: auto
+  version_label: danger
+  version_tooltip: "Under development"
+
+template:
+  params:
+    docsearch:
+      api_key: 2f09495997a50f5008bc92fa73c5552d
+      index_name: massqc
+    bootswatch: flatly
+    ganalytics: UA-000000-01
+    
+navbar:
+  title: "sparklyr"
+  # type: inverse
+  structure:
+    left: [home, start, references, articles, news, contact]
+    right: [github, twitter]
+  components:
+    articles:
+      text: Help document
+      menu:
+      - text: Raw MS data processing
+      - text: Instruction of massqc
+        href: articles/massqc_instruction.html
+      - text: -------
+      - text: "Other tools"
+      - text: Other tools in massqc
+        href: articles/other_tools.html
+    twitter:
+      icon: "fab fa-twitter fa-lg"
+      href: https://twitter.com/JasperShen1990
+    contact:
+      text: Contact us
+      href: articles/contact_us.html
+    news:
+      text: News
+      menu:
+      - text: "Blog posts"
+      - text: "Version 0.9.2"
+        href: articles/version_0_9_2.html
+      - text: "------------------"
+      - text: "Change log"
+        href: news/index.html
+toc:
+  depth: 3
