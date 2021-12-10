@@ -60,5 +60,5 @@ Note:
 biocViews: Metabolomics, MassSpectrometry, Data processing
 Encoding: UTF-8
 Remotes: 
-    tidymass/tinytools
+    tidymass/tinytools,
     tidymass/massdataset
