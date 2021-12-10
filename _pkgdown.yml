@@ -34,13 +34,8 @@ navbar:
     articles:
       text: Help document
       menu:
-      - text: Raw MS data processing
-      - text: Instruction of massqc
-        href: articles/massqc_instruction.html
-      - text: -------
-      - text: "Other tools"
-      - text: Other tools in massqc
-        href: articles/other_tools.html
+      - text: Examples
+        href: articles/example.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990

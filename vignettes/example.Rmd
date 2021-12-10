@@ -1,0 +1,155 @@
+---
+title: "Example"
+author:
+- name: Xiaotao Shen (https://www.shenxt.info/)
+- affiliation: School of Medicine, Stanford University
+  url: http://shenxt.info/
+date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{example}
+  %\VignettePackage{massqc}
+  % \VignetteEngine{knitr::rmarkdown}
+  % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE,
+  out.width = "100%"
+)
+```
+
+
+# **Sample plot**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+library(massdataset)
+library(ggplot2)
+library(tidyverse)
+library(massqc)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
+
+object %>%
+  massqc_sample_boxplot()
+
+object %>%
+  log(10) %>%
+  massqc_sample_boxplot()
+
+object %>%
+  log(10) %>%
+  massqc_sample_boxplot(color_by = "class")
+
+object %>%
+  log(10) %>%
+  massqc_sample_boxplot(fill_by = "class") +
+  ggsci::scale_fill_lancet()
+
+object %>%
+  log(10) %>%
+  massqc_sample_boxplot(
+    fill_by = "class",
+    color_by = "class",
+    point = TRUE,
+    point_alpha = 0.3
+  ) +
+  ggsci::scale_fill_lancet()
+
+object %>%
+  log(10) %>%
+  massqc_sample_boxplot(color_by = "class",
+                 point = TRUE,
+                 point_alpha = 0.3) +
+  ggsci::scale_color_lancet()
+```
+
+# **PCA plot**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
+
+object %>%
+  massqc_pca()
+
+object %>%
+  massqc_pca(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet()
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet() +
+  ggrepel::geom_text_repel(aes(label = sample_id))
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet() +
+  ggrepel::geom_text_repel(aes(label = ifelse(class == "QC", sample_id, NA)))
+
+
+object %>%
+  massqc_pca_pc1()
+
+object %>%
+  massqc_pca_pc1(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(
+    color_by = "class",
+    order_by = "injection.order",
+    point_alpha = 1,
+    point_size = 5
+  ) +
+  ggsci::scale_color_lancet()
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(
+    color_by = "class",
+    order_by = "injection.order",
+    point_alpha = 1,
+    point_size = 5, 
+    desc = TRUE
+  ) +
+  ggsci::scale_color_lancet()
+
+```

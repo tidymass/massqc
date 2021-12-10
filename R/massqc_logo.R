@@ -26,6 +26,7 @@
 #' @import patchwork
 #' @importFrom stats coefficients lm loess median predict 
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
+#' @importFrom ggrepel geom_text_repel geom_label_repel
 #' @export
 #' @examples 
 #' massqc_logo()

@@ -1,4 +1,4 @@
-core <- c("massdataset")
+core <- c("massdataset", "ggfortify")
 
 core_unloaded <- function() {
   search <- paste0("package:", core)

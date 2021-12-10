@@ -10,9 +10,18 @@
     <loc>https://tidymass.github.io/massqc//reference/massqc_packages.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massqc//reference/sample_boxplot.html</loc>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_pca.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_pca_pc1.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_sample_boxplot.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc//articles/contact_us.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc//articles/example.html</loc>
   </url>
 </urlset>

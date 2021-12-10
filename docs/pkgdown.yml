@@ -3,7 +3,8 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
-last_built: 2021-12-02T17:20Z
+  example: example.html
+last_built: 2021-12-10T08:18Z
 urls:
   reference: https://tidymass.github.io/massqc//reference
   article: https://tidymass.github.io/massqc//articles
