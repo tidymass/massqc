@@ -153,3 +153,80 @@ object %>%
   ggsci::scale_color_lancet()
 
 ```
+
+
+
+# **Missing values**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
+
+##show missing values plot
+show_missing_values(object)
+
+show_missing_values(object[1:10,], cell_color = "white")
+
+###only show features with mz < 100
+object %>%
+  activate_mass_dataset(what = "variable_info") %>%
+  dplyr::filter(mz < 100) %>%
+  show_missing_values(cell_color = "white",
+                      show_row_names = TRUE,
+                      row_names_side = "left")
+
+show_sample_missing_values(object, color_by = "class", order_by = "na")
+
+show_variable_missing_values(object, color_by = "rt") +
+  scale_color_gradient(low = "skyblue", high = "red") 
+```
+
+
+
+
+
+
+
+# **RSD**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=FALSE}
+library(massdataset)
+library(ggplot2)
+library(tidyverse)
+data("expression_data")
+data("sample_info")
+data("variable_info")
+
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
+
+object %>% 
+  massqc_rsd_plot()
+
+object %>% 
+  massqc_rsd_plot(color_by = "rsd")
+
+object %>% 
+  massqc_rsd_plot(color_by = "rsd", order_by = "rsd")
+
+object %>% 
+  massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
+  scale_color_gradient(low = "skyblue", high = "red") +
+  geom_hline(yintercept = 0.3, color = "red")
+
+object %>% 
+  activate_mass_dataset(what = "sample_info") %>% 
+  filter(class == "Subject") %>% 
+  massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
+  scale_color_gradient(low = "skyblue", high = "red") +
+  geom_hline(yintercept = 0.3, color = "red")
+```
