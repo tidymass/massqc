@@ -16,7 +16,13 @@
     <loc>https://tidymass.github.io/massqc//reference/massqc_pca_pc1.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_rsd_plot.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massqc//reference/massqc_sample_boxplot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc//reference/reexports.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc//articles/contact_us.html</loc>

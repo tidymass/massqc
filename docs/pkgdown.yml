@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
   example: example.html
-last_built: 2021-12-10T08:18Z
+last_built: 2021-12-10T08:53Z
 urls:
   reference: https://tidymass.github.io/massqc//reference
   article: https://tidymass.github.io/massqc//articles

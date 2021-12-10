@@ -55,6 +55,7 @@ globalVariables(names = c(
   "value",
   "sample_id",
   "na_freq",
-  "PC1"
+  "PC1",
+  "rsd"
 ))
 

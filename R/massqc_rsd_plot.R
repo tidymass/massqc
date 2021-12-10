@@ -13,40 +13,40 @@
 #' @return ggplot2 plot.
 #' @export
 #' @examples
-library(massdataset)
-library(ggplot2)
-library(tidyverse)
-data("expression_data")
-data("sample_info")
-data("variable_info")
-
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info
-  )
-
-object %>% 
-  massqc_rsd_plot()
-
-object %>% 
-  massqc_rsd_plot(color_by = "rsd")
-
-object %>% 
-  massqc_rsd_plot(color_by = "rsd", order_by = "rsd")
-
-object %>% 
-  massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
-  scale_color_gradient(low = "skyblue", high = "red") +
-  geom_hline(yintercept = 0.3, color = "red")
-
-object %>% 
-  activate_mass_dataset(what = "sample_info") %>% 
-  filter(class == "Subject") %>% 
-  massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
-  scale_color_gradient(low = "skyblue", high = "red") +
-  geom_hline(yintercept = 0.3, color = "red")
+#' library(massdataset)
+#' library(ggplot2)
+#' library(tidyverse)
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' 
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info
+#'   )
+#' 
+#' object %>% 
+#'   massqc_rsd_plot()
+#' 
+#' object %>% 
+#'   massqc_rsd_plot(color_by = "rsd")
+#' 
+#' object %>% 
+#'   massqc_rsd_plot(color_by = "rsd", order_by = "rsd")
+#' 
+#' object %>% 
+#'   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
+#'   scale_color_gradient(low = "skyblue", high = "red") +
+#'   geom_hline(yintercept = 0.3, color = "red")
+#' 
+#' object %>% 
+#'   activate_mass_dataset(what = "sample_info") %>% 
+#'   filter(class == "Subject") %>% 
+#'   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
+#'   scale_color_gradient(low = "skyblue", high = "red") +
+#'   geom_hline(yintercept = 0.3, color = "red")
 
 
 
