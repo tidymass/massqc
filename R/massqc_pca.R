@@ -90,13 +90,17 @@ massqc_pca = function(object,
     }
   }
   
+  if(all(names(object@process_info) != "scale")){
+    warning("no scale for this dataset, try to scale() before pca.\n")
+  }
+  
   pca_object = prcomp(x = t(as.matrix(expression_data)),
                       center = FALSE,
                       scale. = FALSE)
   
   if (color_by == "no") {
     plot =
-      autoplot(
+      ggfortify:::autoplot.pca_common(
         object = pca_object,
         data = sample_info,
         size = 5,

@@ -7,6 +7,26 @@
 #' @param type type html, pdf or all.
 #' @return reporting result
 #' @export
+#'@examples
+#'\dontrun{
+#' library(massdataset)
+#' data("expression_data")
+#' data("sample_info")
+#' data("sample_info_note")
+#' data("variable_info")
+#' data("variable_info_note")
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info,
+#'     sample_info_note = sample_info_note,
+#'     variable_info_note = variable_info_note
+#'   )
+#' object
+#' massqc_report(object, path = "demo_data")
+#'}
+
 massqc_report = function(object,
                          path = ".",
                          type = c("html", "pdf", "all")) {
@@ -387,3 +407,4 @@ massqc_report = function(object,
     force = TRUE
   )
 }
+
