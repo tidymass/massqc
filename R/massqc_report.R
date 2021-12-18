@@ -19,6 +19,8 @@ massqc_report = function(object,
     output_path = file.path(path, paste('Report', length(grep(
       "Report", dir(path)
     )) + 1, sep = "_"))
+  }else{
+    output_path = file.path(path, "Report")
   }
   
   # dir.create(output_path, showWarnings = FALSE)
