@@ -348,16 +348,19 @@ massqc_report = function(object,
   
   ###PCA
   cat("PCA score plot.\n")
+  object2 = object
+  object2@expression_data = 
+    as.data.frame(scale(log(object2@expression_data)))
   plot =
     massqc_pca(
-      object = scale(log(object)),
+      object = object2,
       color_by = ifelse(any(
         colnames(object@sample_info) == "batch"
       ),
       "batch", "class"),
       frame = TRUE
     )
-  
+  cat("PCA done.\n")
   ggplot2::ggsave(
     filename = file.path(output_path, "pca.pdf"),
     plot = plot,
