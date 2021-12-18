@@ -4,6 +4,9 @@
     <loc>https://tidymass.github.io/massqc//index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_cumulative_rsd_plot.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massqc//reference/massqc_logo.html</loc>
   </url>
   <url>
@@ -14,6 +17,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc//reference/massqc_pca_pc1.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc//reference/massqc_report.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc//reference/massqc_rsd_plot.html</loc>

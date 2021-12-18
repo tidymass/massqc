@@ -53,23 +53,23 @@ object =
     variable_info = variable_info
   )
 
-object \%>\% 
+object \%>\%
   massqc_rsd_plot()
 
-object \%>\% 
+object \%>\%
   massqc_rsd_plot(color_by = "rsd")
 
-object \%>\% 
+object \%>\%
   massqc_rsd_plot(color_by = "rsd", order_by = "rsd")
 
-object \%>\% 
+object \%>\%
   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
   scale_color_gradient(low = "skyblue", high = "red") +
   geom_hline(yintercept = 0.3, color = "red")
 
-object \%>\% 
-  activate_mass_dataset(what = "sample_info") \%>\% 
-  filter(class == "Subject") \%>\% 
+object \%>\%
+  activate_mass_dataset(what = "sample_info") \%>\%
+  filter(class == "Subject") \%>\%
   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
   scale_color_gradient(low = "skyblue", high = "red") +
   geom_hline(yintercept = 0.3, color = "red")

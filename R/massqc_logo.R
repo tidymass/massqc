@@ -11,7 +11,7 @@
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
 #' @importFrom clisymbols symbol
 #' @importFrom cli rule col_cyan tree
-#' @importFrom utils packageVersion object.size write.csv tail
+#' @importFrom utils packageVersion object.size write.csv tail head
 #' @importFrom purrr map map2
 #' @importFrom plyr dlply .
 #' @importFrom RColorBrewer brewer.pal
@@ -25,7 +25,7 @@
 #' @importFrom patchwork plot_layout
 #' @importFrom ggcorrplot ggcorrplot
 #' @import patchwork
-#' @importFrom stats coefficients lm loess median predict 
+#' @importFrom stats coefficients lm loess median predict ecdf
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom ggrepel geom_text_repel geom_label_repel
 #' @export

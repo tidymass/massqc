@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>massqc_rsd_plot — massqc_rsd_plot • massqc</title>
+<title>massqc_rsd_plot — massqc_cumulative_rsd_plot • massqc</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,7 +52,7 @@
 
 
 
-<meta property="og:title" content="massqc_rsd_plot — massqc_rsd_plot" />
+<meta property="og:title" content="massqc_rsd_plot — massqc_cumulative_rsd_plot" />
 <meta property="og:description" content="RSD plot for each variable." />
 <meta property="og:image" content="https://tidymass.github.io/massqc/logo.png" />
 
@@ -181,58 +181,33 @@
     <div class="page-header">
     <h1>massqc_rsd_plot</h1>
     <small class="dont-index">Source: <a href='https://github.com/tidymass/massqc/blob/master/R/massqc_rsd_plot.R'><code>R/massqc_rsd_plot.R</code></a></small>
-    <div class="hidden name"><code>massqc_rsd_plot.Rd</code></div>
+    <div class="hidden name"><code>massqc_cumulative_rsd_plot.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>RSD plot for each variable.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>massqc_rsd_plot</span><span class='op'>(</span>
-  <span class='va'>object</span>,
-  <span class='va'>color_by</span>,
-  order_by <span class='op'>=</span> <span class='st'>"variable_id"</span>,
-  show_x_text <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  show_x_ticks <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  desc <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  point_alpha <span class='op'>=</span> <span class='fl'>0.8</span>,
-  point_size <span class='op'>=</span> <span class='fl'>3</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>title</span>, <span class='va'>rsd_cutoff</span>, <span class='va'>color</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>tidymass-class object.</p></td>
+      <th>...</th>
+      <td><p>one or more mass_dataset object</p></td>
     </tr>
     <tr>
-      <th>color_by</th>
-      <td><p>which column (sample_info) is used to color samples</p></td>
+      <th>title</th>
+      <td><p>missing or same length (character vector) with ...</p></td>
     </tr>
     <tr>
-      <th>order_by</th>
-      <td><p>which column (sample_info) is used to order samples</p></td>
+      <th>rsd_cutoff</th>
+      <td><p>numeric</p></td>
     </tr>
     <tr>
-      <th>show_x_text</th>
-      <td><p>show_x_text</p></td>
-    </tr>
-    <tr>
-      <th>show_x_ticks</th>
-      <td><p>show_x_ticks</p></td>
-    </tr>
-    <tr>
-      <th>desc</th>
-      <td><p>desc</p></td>
-    </tr>
-    <tr>
-      <th>point_alpha</th>
-      <td><p>point_alpha</p></td>
-    </tr>
-    <tr>
-      <th>point_size</th>
-      <td><p>point_size</p></td>
+      <th>color</th>
+      <td><p>when one mass_dataset, the line color</p></td>
     </tr>
     </table>
 
@@ -248,6 +223,16 @@
     <pre class="examples"><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tidymass/massdataset'>massdataset</a></span><span class='op'>)</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
 <span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.1 ──</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>tibble </span> 3.1.3     <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>dplyr  </span> 1.0.7</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>tidyr  </span> 1.1.3     <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>stringr</span> 1.4.0</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>readr  </span> 2.0.0     <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>forcats</span> 0.5.1</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #00BB00;'>✓</span> <span style='color: #0000BB;'>purrr  </span> 0.3.4     </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>tidyr</span>::<span style='color: #00BB00;'>extract()</span>   masks <span style='color: #0000BB;'>magrittr</span>::extract()</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>dplyr</span>::<span style='color: #00BB00;'>filter()</span>    masks <span style='color: #0000BB;'>massdataset</span>::filter(), <span style='color: #0000BB;'>stats</span>::filter()</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>dplyr</span>::<span style='color: #00BB00;'>lag()</span>       masks <span style='color: #0000BB;'>stats</span>::lag()</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>purrr</span>::<span style='color: #00BB00;'>set_names()</span> masks <span style='color: #0000BB;'>magrittr</span>::set_names()</span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"expression_data"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"sample_info"</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"variable_info"</span><span class='op'>)</span></span>
@@ -259,36 +244,45 @@
 <span class='r-in'>    variable_info <span class='op'>=</span> <span class='va'>variable_info</span></span>
 <span class='r-in'>  <span class='op'>)</span></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>massqc_rsd_plot</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 140 rows containing missing values (geom_point).</span>
-<span class='r-plt img'><img src='massqc_rsd_plot-1.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span><span class='va'>object</span>, rsd_cutoff <span class='op'>=</span> <span class='fl'>30</span>, color <span class='op'>=</span> <span class='st'>"blue"</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='massqc_cumulative_rsd_plot-1.png' alt='' width='700' height='433' /></span>
 <span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>massqc_rsd_plot</span><span class='op'>(</span>color_by <span class='op'>=</span> <span class='st'>"rsd"</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 140 rows containing missing values (geom_point).</span>
-<span class='r-plt img'><img src='massqc_rsd_plot-2.png' alt='' width='700' height='433' /></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>massqc_rsd_plot</span><span class='op'>(</span>color_by <span class='op'>=</span> <span class='st'>"rsd"</span>, order_by <span class='op'>=</span> <span class='st'>"rsd"</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 140 rows containing missing values (geom_point).</span>
-<span class='r-plt img'><img src='massqc_rsd_plot-3.png' alt='' width='700' height='433' /></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>massqc_rsd_plot</span><span class='op'>(</span>color_by <span class='op'>=</span> <span class='st'>"rsd"</span>, point_alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_color_gradient</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"skyblue"</span>, high <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0.3</span>, color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 140 rows containing missing values (geom_point).</span>
-<span class='r-plt img'><img src='massqc_rsd_plot-4.png' alt='' width='700' height='433' /></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'><span class='va'>object1</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
 <span class='r-in'>  <span class='fu'><a href='https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html'>activate_mass_dataset</a></span><span class='op'>(</span>what <span class='op'>=</span> <span class='st'>"sample_info"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
-<span class='r-in'>  <span class='fu'>massqc_rsd_plot</span><span class='op'>(</span>color_by <span class='op'>=</span> <span class='st'>"rsd"</span>, point_alpha <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_gradient.html'>scale_color_gradient</a></span><span class='op'>(</span>low <span class='op'>=</span> <span class='st'>"skyblue"</span>, high <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span class='r-in'>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0.3</span>, color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>Removed 325 rows containing missing values (geom_point).</span>
-<span class='r-plt img'><img src='massqc_rsd_plot-5.png' alt='' width='700' height='433' /></span>
+<span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"QC"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>object2</span> <span class='op'>=</span></span>
+<span class='r-in'>  <span class='va'>object</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html'>activate_mass_dataset</a></span><span class='op'>(</span>what <span class='op'>=</span> <span class='st'>"sample_info"</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>class</span> <span class='op'>==</span> <span class='st'>"Subject"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span><span class='va'>object1</span>, <span class='va'>object2</span>,</span>
+<span class='r-in'>                           title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"QC"</span>, <span class='st'>"Subject"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/scale_lancet.html'>scale_color_lancet</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='massqc_cumulative_rsd_plot-2.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span><span class='va'>object1</span>,</span>
+<span class='r-in'>                           <span class='va'>object2</span>,</span>
+<span class='r-in'>                           rsd_cutoff <span class='op'>=</span> <span class='fl'>30</span>,</span>
+<span class='r-in'>                           title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"QC"</span>, <span class='st'>"Subject"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span class='r-in'>  <span class='fu'>ggsci</span><span class='fu'>::</span><span class='fu'><a href='https://nanx.me/ggsci/reference/scale_lancet.html'>scale_color_lancet</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-plt img'><img src='massqc_cumulative_rsd_plot-3.png' alt='' width='700' height='433' /></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='va'>object1</span>,</span>
+<span class='r-in'>  title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"QC"</span><span class='op'>)</span>,</span>
+<span class='r-in'>  color <span class='op'>=</span> <span class='st'>"red"</span>,</span>
+<span class='r-in'>  rsd_cutoff <span class='op'>=</span> <span class='fl'>30</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='massqc_cumulative_rsd_plot-4.png' alt='' width='700' height='433' /></span>
+<span class='r-in'><span class='fu'>massqc_cumulative_rsd_plot</span><span class='op'>(</span></span>
+<span class='r-in'>  <span class='va'>object2</span>,</span>
+<span class='r-in'>  title <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Subject"</span><span class='op'>)</span>,</span>
+<span class='r-in'>  color <span class='op'>=</span> <span class='st'>"blue"</span>,</span>
+<span class='r-in'>  rsd_cutoff <span class='op'>=</span> <span class='fl'>50</span></span>
+<span class='r-in'><span class='op'>)</span></span>
+<span class='r-plt img'><img src='massqc_cumulative_rsd_plot-5.png' alt='' width='700' height='433' /></span>
 </pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

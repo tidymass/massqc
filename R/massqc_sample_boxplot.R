@@ -18,30 +18,30 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info
 #'   )
-#' 
+#'
 #' object %>%
 #'   massqc_sample_boxplot()
-#' 
+#'
 #' object %>%
 #'   log(10) %>%
 #'   massqc_sample_boxplot()
-#' 
+#'
 #' object %>%
 #'   log(10) %>%
 #'   massqc_sample_boxplot(color_by = "class")
-#' 
+#'
 #' object %>%
 #'   log(10) %>%
 #'   massqc_sample_boxplot(fill_by = "class") +
 #'   ggsci::scale_fill_lancet()
-#' 
+#'
 #' object %>%
 #'   log(10) %>%
 #'   massqc_sample_boxplot(
@@ -51,7 +51,7 @@
 #'     point_alpha = 0.3
 #'   ) +
 #'   ggsci::scale_fill_lancet()
-#' 
+#'
 #' object %>%
 #'   log(10) %>%
 #'   massqc_sample_boxplot(color_by = "class",

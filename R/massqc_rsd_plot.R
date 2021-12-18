@@ -19,31 +19,31 @@
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info
 #'   )
-#' 
-#' object %>% 
+#'
+#' object %>%
 #'   massqc_rsd_plot()
-#' 
-#' object %>% 
+#'
+#' object %>%
 #'   massqc_rsd_plot(color_by = "rsd")
-#' 
-#' object %>% 
+#'
+#' object %>%
 #'   massqc_rsd_plot(color_by = "rsd", order_by = "rsd")
-#' 
-#' object %>% 
+#'
+#' object %>%
 #'   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
 #'   scale_color_gradient(low = "skyblue", high = "red") +
 #'   geom_hline(yintercept = 0.3, color = "red")
-#' 
-#' object %>% 
-#'   activate_mass_dataset(what = "sample_info") %>% 
-#'   filter(class == "Subject") %>% 
+#'
+#' object %>%
+#'   activate_mass_dataset(what = "sample_info") %>%
+#'   filter(class == "Subject") %>%
 #'   massqc_rsd_plot(color_by = "rsd", point_alpha = 1) +
 #'   scale_color_gradient(low = "skyblue", high = "red") +
 #'   geom_hline(yintercept = 0.3, color = "red")
@@ -138,6 +138,189 @@ massqc_rsd_plot = function(object,
       ggplot2::geom_point(aes(color = get(color_by)),
                           size = point_size, alpha = point_alpha) +
       guides(color = guide_legend(title = color_by))
+  }
+  
+  
+  return(plot)
+}
+
+
+
+
+
+
+
+
+
+
+
+#' @title massqc_rsd_plot
+#' @description RSD plot for each variable.
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@163.com}
+#' @param ... one or more mass_dataset object
+#' @param title missing or same length (character vector) with ...
+#' @param rsd_cutoff numeric
+#' @param color when one mass_dataset, the line color
+#' @return ggplot2 plot.
+#' @export
+#' @examples
+#' library(massdataset)
+#' library(ggplot2)
+#' library(tidyverse)
+#' data("expression_data")
+#' data("sample_info")
+#' data("variable_info")
+#' 
+#' object =
+#'   create_mass_dataset(
+#'     expression_data = expression_data,
+#'     sample_info = sample_info,
+#'     variable_info = variable_info
+#'   )
+#' 
+#' massqc_cumulative_rsd_plot(object, rsd_cutoff = 30, color = "blue")
+#' 
+#' object1 =
+#'   object %>%
+#'   activate_mass_dataset(what = "sample_info") %>%
+#'   dplyr::filter(class == "QC")
+#' 
+#' object2 =
+#'   object %>%
+#'   activate_mass_dataset(what = "sample_info") %>%
+#'   dplyr::filter(class == "Subject")
+#' 
+#' massqc_cumulative_rsd_plot(object1, object2,
+#'                            title = c("QC", "Subject")) +
+#'   ggsci::scale_color_lancet()
+#' 
+#' massqc_cumulative_rsd_plot(object1,
+#'                            object2,
+#'                            rsd_cutoff = 30,
+#'                            title = c("QC", "Subject")) +
+#'   ggsci::scale_color_lancet()
+#' 
+#' massqc_cumulative_rsd_plot(
+#'   object1,
+#'   title = c("QC"),
+#'   color = "red",
+#'   rsd_cutoff = 30
+#' )
+#' massqc_cumulative_rsd_plot(
+#'   object2,
+#'   title = c("Subject"),
+#'   color = "blue",
+#'   rsd_cutoff = 50
+#' )
+
+massqc_cumulative_rsd_plot = function(...,
+                                      title,
+                                      rsd_cutoff,
+                                      color) {
+  object = list(...)
+  if (missing(title)) {
+    title = paste("object", 1:length(object), sep = "_")
+  } else{
+    if (length(title) != length(object)) {
+      stop("objects should be same length with title.\n")
+    }
+  }
+  object %>%
+    purrr::walk(function(x) {
+      massdataset::check_object_class(object = x, class = "mass_dataset")
+    })
+  
+  object =
+    object %>%
+    purrr::map(function(x) {
+      x %>%
+        massdataset::activate_mass_dataset(what = "variable_info") %>%
+        dplyr::select(-dplyr::contains("rsd")) %>%
+        massdataset::mutate_rsd()
+    })
+  
+  rsd =
+    object %>%
+    lapply(function(x) {
+      x@variable_info$rsd[!is.na(x@variable_info$rsd)]
+    })
+  
+  commulative_distributation =
+    rsd %>%
+    lapply(function(x) {
+      ecdf(x = x)
+    })
+  
+  temp_data =
+    purrr::map2(.x = rsd, .y = title, function(x, y) {
+      commulative_distributation =
+        ecdf(x = x)
+      data.frame(rsd = seq(
+        from = 0,
+        to = max(x),
+        length.out = 1000
+      )) %>%
+        dplyr::mutate(freq = commulative_distributation(rsd) * 100,
+                      title = y)
+    }) %>%
+    dplyr::bind_rows()
+  
+  if (length(unique(temp_data$title)) == 1) {
+    if (!missing(color)) {
+      color = color[1]
+    } else{
+      color = "black"
+    }
+    plot =
+      temp_data %>%
+      ggplot2::ggplot(aes(rsd, freq)) +
+      geom_line(aes(group = title),
+                color = color)
+  } else{
+    plot =
+      temp_data %>%
+      ggplot2::ggplot(aes(rsd, freq)) +
+      geom_line(aes(group = title, color = title))
+  }
+  
+  plot =
+    plot +
+    labs(x = "RSD (%)",
+         y = "Percentage (%)") +
+    theme_bw() +
+    theme(panel.grid.minor = element_blank()) +
+    guides(color = guide_legend(title = ""))
+  
+  if (!missing(rsd_cutoff)) {
+    plot =
+      plot +
+      geom_vline(xintercept = 30, color = "red")
+    
+    value =
+      commulative_distributation %>%
+      purrr::map(function(x) {
+        x(rsd_cutoff)
+      }) %>%
+      unlist() %>%
+      `*`(100) %>%
+      round(2)
+    
+    annotate_text =
+      data.frame(value, x = rsd_cutoff,
+                 title = title)
+    
+    plot =
+      plot +
+      ggrepel::geom_label_repel(
+        aes(x, value,
+            label = value,
+            color = title),
+        data = annotate_text,
+        show.legend = FALSE
+      )
+    
+    
   }
   
   

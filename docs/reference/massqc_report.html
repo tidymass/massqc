@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • massqc</title>
+<title>Report data quality — massqc_report • massqc</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,7 +52,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Report data quality — massqc_report" />
+<meta property="og:description" content="Report data quality" />
 <meta property="og:image" content="https://tidymass.github.io/massqc/logo.png" />
 
 
@@ -82,7 +83,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -176,90 +177,45 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Report data quality</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massqc/blob/master/R/massqc_report.R'><code>R/massqc_report.R</code></a></small>
+    <div class="hidden name"><code>massqc_report.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Report data quality</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>massqc_report</span><span class='op'>(</span><span class='va'>object</span>, path <span class='op'>=</span> <span class='st'>"."</span>, type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"html"</span>, <span class='st'>"pdf"</span>, <span class='st'>"all"</span><span class='op'>)</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="massqc_cumulative_rsd_plot.html">massqc_cumulative_rsd_plot()</a></code> </p>
-        </td>
-        <td><p>massqc_rsd_plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_logo.html">massqc_logo()</a></code> </p>
-        </td>
-        <td><p>massqc_logo</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_packages.html">massqc_packages()</a></code> </p>
-        </td>
-        <td><p>List all packages in the massqc</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_pca.html">massqc_pca()</a></code> </p>
-        </td>
-        <td><p>massqc_pca</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_pca_pc1.html">massqc_pca_pc1()</a></code> </p>
-        </td>
-        <td><p>massqc_pca_pc1</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_report.html">massqc_report()</a></code> </p>
-        </td>
-        <td><p>Report data quality</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_rsd_plot.html">massqc_rsd_plot()</a></code> </p>
-        </td>
-        <td><p>massqc_rsd_plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_sample_boxplot.html">massqc_sample_boxplot()</a></code> </p>
-        </td>
-        <td><p>massqc_sample_boxplot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_sample_correlation.html">massqc_sample_correlation()</a></code> </p>
-        </td>
-        <td><p>massqc_sample_correlation</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>object</th>
+      <td><p>tidymass-class object.</p></td>
+    </tr>
+    <tr>
+      <th>path</th>
+      <td><p>path</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>type html, pdf or all.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>reporting result</p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Xiaotao Shen
+<a href='mailto:shenxt1990@163.com'>shenxt1990@163.com</a></p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
