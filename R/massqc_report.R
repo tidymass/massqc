@@ -255,7 +255,7 @@ massqc_report = function(object,
   if (sum(object@sample_info$class == "QC") >= 3) {
     plot =
       massqc_sample_boxplot(
-        object = object %>%
+        object = log(object) %>%
           massdataset::activate_mass_dataset(what = "sample_info") %>%
           dplyr::filter(class == "QC"),
         color_by = ifelse(any(
@@ -264,7 +264,7 @@ massqc_report = function(object,
       )
   } else{
     plot =
-      massqc_sample_boxplot(object = object[, 1:30],
+      massqc_sample_boxplot(object = log(object)[, 1:30],
                             color_by = ifelse(any(
                               colnames(object@sample_info) == "batch"
                             ), "batch", "class")) +
@@ -286,8 +286,6 @@ massqc_report = function(object,
     height = 6,
     dpi = 600
   )
-  
-  
   
   ####sample correlation
   if (sum(object@sample_info$class == "QC") >= 3) {

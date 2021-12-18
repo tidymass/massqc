@@ -25,6 +25,7 @@
 #' @importFrom patchwork plot_layout
 #' @importFrom ggcorrplot ggcorrplot
 #' @import patchwork
+#' @import ggfortify
 #' @importFrom stats coefficients lm loess median predict ecdf
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom ggrepel geom_text_repel geom_label_repel
