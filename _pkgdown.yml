@@ -34,6 +34,8 @@ navbar:
     articles:
       text: Help document
       menu:
+      - text: PCA analysis shows the quality
+        href: articles/massqc_pca.html
       - text: Examples
         href: articles/example.html
     twitter:

@@ -1,0 +1,121 @@
+---
+title: "PCA analysis shows the quality"
+author:
+- name: Xiaotao Shen (https://www.shenxt.info/)
+date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{massqc_pca}
+  %\VignettePackage{massqc}
+  % \VignetteEngine{knitr::rmarkdown}
+  % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE,
+  out.width = "100%"
+)
+```
+
+# **PCA 2D plot**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(massdataset)
+library(tidyverse)
+library(massqc)
+data("sample_info", package = "massdataset")
+data("expression_data", package = "massdataset")
+data("variable_info", package = "massdataset")
+object =
+  create_mass_dataset(
+    expression_data = expression_data,
+    sample_info = sample_info,
+    variable_info = variable_info
+  )
+```
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+
+object %>%
+  massqc_pca()
+
+object %>%
+  massqc_pca(color_by = "class")
+
+###scale and then PCA
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class")
+
+###log scale and then PCA
+object %>%
+  log %>% 
+  scale %>%
+  massqc_pca(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet()
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet() +
+  ggrepel::geom_text_repel(aes(label = sample_id))
+
+object %>%
+  scale %>%
+  massqc_pca(color_by = "class", frame = FALSE) +
+  ggsci::scale_fill_lancet() +
+  ggrepel::geom_text_repel(aes(label = ifelse(class == "QC", sample_id, NA)))
+```
+
+# **PCA 1D plot**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+####only show the PC1
+object %>%
+  massqc_pca_pc1()
+
+object %>%
+  massqc_pca_pc1(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(color_by = "class")
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(
+    color_by = "class",
+    order_by = "injection.order",
+    point_alpha = 1,
+    point_size = 5
+  ) +
+  ggsci::scale_color_lancet()
+
+object %>%
+  scale %>%
+  massqc_pca_pc1(
+    color_by = "class",
+    order_by = "injection.order",
+    point_alpha = 1,
+    point_size = 5, 
+    desc = TRUE
+  ) +
+  ggsci::scale_color_lancet()
+
+```
+
+
