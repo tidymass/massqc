@@ -1,6 +1,7 @@
 base
 massdataset
 magrittr
+tinytools
 tidyverse
 ggplot2
 tibble
