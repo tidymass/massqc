@@ -7,6 +7,8 @@
 [![Dependencies](https://tinyverse.netlify.com/badge/massqc)](https://cran.r-project.org/package=massqc)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
+`massqc` is a part of [tidymass](https://tidymass.github.io/tidymass/).
+
 ------
 
 ## **About**
