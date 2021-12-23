@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • massqc</title>
+<title>Conflicts between the massqc and other packages — massqc_conflicts • massqc</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -52,7 +52,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Conflicts between the massqc and other packages — massqc_conflicts" />
+<meta property="og:description" content="This function lists all the conflicts between packages in the massqc
+and other packages that you have loaded." />
 <meta property="og:image" content="https://tidymass.github.io/massqc/logo.png" />
 
 
@@ -82,7 +84,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -176,96 +178,42 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Conflicts between the massqc and other packages</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymass/massqc/blob/master/R/conflicts.R'><code>R/conflicts.R</code></a></small>
+    <div class="hidden name"><code>massqc_conflicts.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>This function lists all the conflicts between packages in the massqc
+and other packages that you have loaded.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>massqc_conflicts</span><span class='op'>(</span><span class='op'>)</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="massqc_conflicts.html">massqc_conflicts()</a></code> </p>
-        </td>
-        <td><p>Conflicts between the massqc and other packages</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_cumulative_rsd_plot.html">massqc_cumulative_rsd_plot()</a></code> </p>
-        </td>
-        <td><p>massqc_rsd_plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_logo.html">massqc_logo()</a></code> </p>
-        </td>
-        <td><p>massqc_logo</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_packages.html">massqc_packages()</a></code> </p>
-        </td>
-        <td><p>List all packages in the massqc</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_pca.html">massqc_pca()</a></code> </p>
-        </td>
-        <td><p>massqc_pca</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_pca_pc1.html">massqc_pca_pc1()</a></code> </p>
-        </td>
-        <td><p>massqc_pca_pc1</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_report.html">massqc_report()</a></code> </p>
-        </td>
-        <td><p>Report data quality</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_rsd_plot.html">massqc_rsd_plot()</a></code> </p>
-        </td>
-        <td><p>massqc_rsd_plot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_sample_boxplot.html">massqc_sample_boxplot()</a></code> </p>
-        </td>
-        <td><p>massqc_sample_boxplot</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="massqc_sample_correlation.html">massqc_sample_correlation()</a></code> </p>
-        </td>
-        <td><p>massqc_sample_correlation</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>There are four conflicts that are deliberately ignored: <code>intersect</code>,
+<code>union</code>, <code>setequal</code>, and <code>setdiff</code> from dplyr. These functions
+make the base equivalents generic, so shouldn't negatively affect any
+existing code.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='r-in'><span class='fu'>massqc_conflicts</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> ── <span style='font-weight: bold;'>Conflicts</span> ───────────────────────────────────────────── massqc_conflicts() ──</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>apply()</span>     masks <span style='color: #0000BB;'>base</span>::apply()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>methods</span>::<span style='color: #00BB00;'>body&lt;-()</span>        masks <span style='color: #0000BB;'>base</span>::body&lt;-()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>colnames()</span>  masks <span style='color: #0000BB;'>base</span>::colnames()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>filter()</span>    masks <span style='color: #0000BB;'>stats</span>::filter()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>intersect()</span> masks <span style='color: #0000BB;'>base</span>::intersect()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>methods</span>::<span style='color: #00BB00;'>kronecker()</span>     masks <span style='color: #0000BB;'>base</span>::kronecker()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>tinytools</span>::<span style='color: #00BB00;'>mz_rt_match()</span> masks <span style='color: #0000BB;'>massdataset</span>::mz_rt_match()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>rownames()</span>  masks <span style='color: #0000BB;'>base</span>::rownames()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BB0000;'>x</span> <span style='color: #0000BB;'>massdataset</span>::<span style='color: #00BB00;'>scale()</span>     masks <span style='color: #0000BB;'>base</span>::scale()</span>
+</pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
