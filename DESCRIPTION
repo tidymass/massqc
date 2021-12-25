@@ -13,7 +13,6 @@ Description: This package is used to do quality control of untargeted metabolomi
 LazyData: true
 Depends: R (>= 3.5)
 Imports:
-    BiocParallel,
     cli,
     crayon,
     clisymbols,
@@ -24,7 +23,6 @@ Imports:
     graphics,
     grDevices,
     magrittr,
-    pbapply,
     plyr,
     purrr,
     patchwork,

@@ -5,7 +5,6 @@
 #' @importFrom Biobase featureData
 #' @importFrom crayon yellow red green bold bgRed
 #' @import ggplot2
-#' @importFrom pbapply pblapply pboptions
 #' @importFrom stringr str_split str_replace_all str_trim str_detect str_extract
 #' @importFrom dplyr filter select pull everything distinct one_of left_join mutate bind_cols arrange
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
@@ -18,7 +17,6 @@
 #' @importFrom readr read_csv cols
 #' @importFrom readxl read_excel
 #' @importFrom tinytools get_os mz_rt_match
-#' @importFrom BiocParallel MulticoreParam SnowParam bplapply
 #' @importFrom magrittr %>%
 #' @importFrom plotly ggplotly
 #' @importFrom BiocGenerics basename
