@@ -61,7 +61,8 @@ massqc_pca = function(object,
   massdataset::check_object_class(object = object, class = "mass_dataset")
   
   if (sum(is.na(object@expression_data)) > 0) {
-    warning("MVs in you object,\nwill remove variables > 50% and imputate with zero.\n")
+    warning("MVs in you object,
+            \nwill remove variables > 50% and imputate with zero.\n")
     object =
       object %>%
       massdataset::mutate_variable_na_freq()
@@ -90,7 +91,7 @@ massqc_pca = function(object,
     }
   }
   
-  if(all(names(object@process_info) != "scale")){
+  if (all(names(object@process_info) != "scale")) {
     warning("no scale for this dataset, try to scale() before pca.\n")
   }
   
@@ -161,24 +162,24 @@ massqc_pca = function(object,
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info
 #'   )
-#' 
+#'
 #' object %>%
 #'   massqc_pca_pc1()
-#' 
+#'
 #' object %>%
 #'   massqc_pca_pc1(color_by = "class")
-#' 
+#'
 #' object %>%
 #'   scale %>%
 #'   massqc_pca_pc1(color_by = "class")
-#' 
+#'
 #' object %>%
 #'   scale %>%
 #'   massqc_pca_pc1(
@@ -188,14 +189,14 @@ massqc_pca = function(object,
 #'     point_size = 5
 #'   ) +
 #'   ggsci::scale_color_lancet()
-#' 
+#'
 #' object %>%
 #'   scale %>%
 #'   massqc_pca_pc1(
 #'     color_by = "class",
 #'     order_by = "injection.order",
 #'     point_alpha = 1,
-#'     point_size = 5, 
+#'     point_size = 5,
 #'     desc = TRUE
 #'   ) +
 #'   ggsci::scale_color_lancet()
@@ -210,7 +211,8 @@ massqc_pca_pc1 = function(object,
   massdataset::check_object_class(object = object, class = "mass_dataset")
   
   if (sum(is.na(object@expression_data)) > 0) {
-    warning("MVs in you object,\nwill remove variables > 50% and imputate with zero.\n")
+    warning("MVs in you object,
+            \nwill remove variables > 50% and imputate with zero.\n")
     object =
       object %>%
       massdataset::mutate_variable_na_freq()
@@ -256,21 +258,21 @@ massqc_pca_pc1 = function(object,
   
   if (desc) {
     temp_data =
-      sample_info %>% 
+      sample_info %>%
       dplyr::arrange(desc(get(order_by))) %>%
       dplyr::mutate(sample_id = factor(sample_id,
                                        levels = sample_id))
     
   } else{
     temp_data =
-      sample_info %>% 
+      sample_info %>%
       dplyr::arrange(get(order_by)) %>%
       dplyr::mutate(sample_id = factor(sample_id,
                                        levels = sample_id))
   }
   
   plot =
-    temp_data %>% 
+    temp_data %>%
     ggplot(aes(sample_id, PC1)) +
     theme_bw() +
     theme(
@@ -286,7 +288,7 @@ massqc_pca_pc1 = function(object,
   
   if (color_by == "no") {
     plot =
-     plot +
+      plot +
       geom_point(size = point_size,
                  alpha = point_alpha)
   } else{

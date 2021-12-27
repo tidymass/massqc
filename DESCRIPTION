@@ -8,10 +8,9 @@ Authors@R: c(
       comment = c(ORCID = "0000-0002-9608-9964")
     )
     )
-Maintainer: Xiaotao Shen<shenxt1990@163.com>
 Description: This package is used to do quality control of untargeted metabolomics data.
 LazyData: true
-Depends: R (>= 3.5)
+Depends: R (>= 4.1)
 Imports:
     cli,
     crayon,
@@ -26,8 +25,6 @@ Imports:
     plyr,
     purrr,
     patchwork,
-    snow,
-    tidyverse,
     methods,
     pander,
     utils,
@@ -45,7 +42,8 @@ Imports:
     rstudioapi,
     BiocGenerics,
     ggrepel,
-    ggcorrplot
+    ggcorrplot,
+    tidyverse
 License: GPL-2 | file LICENSE
 URL: https://github.com/tidymass/massqc
 RoxygenNote: 7.1.1
@@ -56,7 +54,7 @@ Suggests:
     RUnit
 VignetteBuilder: knitr
 Note:
-biocViews: Metabolomics, MassSpectrometry, Data processing
+biocViews: Metabolomics, MassSpectrometry, QualityControl
 Encoding: UTF-8
 Remotes: 
     tidymass/tinytools,

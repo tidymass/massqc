@@ -73,7 +73,7 @@ object \%>\%
     color_by = "class",
     order_by = "injection.order",
     point_alpha = 1,
-    point_size = 5, 
+    point_size = 5,
     desc = TRUE
   ) +
   ggsci::scale_color_lancet()

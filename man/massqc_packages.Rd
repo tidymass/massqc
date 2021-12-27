@@ -9,6 +9,9 @@ massqc_packages(include_self = TRUE)
 \arguments{
 \item{include_self}{Include massqc in the list?}
 }
+\value{
+massqc_packages
+}
 \description{
 List all packages in the massqc
 }

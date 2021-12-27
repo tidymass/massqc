@@ -63,7 +63,8 @@ massqc_report = function(object,
       data.frame(
         pacakge_name = x@pacakge_name,
         function_name = x@function_name,
-        parameter = purrr::map2(names(x@parameter), x@parameter, function(name, value) {
+        parameter = purrr::map2(names(x@parameter), 
+                                x@parameter, function(name, value) {
           if (length(value) > 5) {
             value = head(value, 5)
             value = paste(c(value, "..."), collapse = ',')
@@ -141,7 +142,7 @@ massqc_report = function(object,
   if (nrow(object) > 1000) {
     plot =
       massdataset::show_variable_missing_values(
-        object = object[1:10000,],
+        object = object[seq_len(10000), ],
         order_by = "rt",
         show_x_text = ifelse(nrow(object) < 20, TRUE, FALSE),
         show_x_ticks = ifelse(nrow(object) < 20, TRUE, FALSE),
@@ -291,7 +292,7 @@ massqc_report = function(object,
       )
   } else{
     plot =
-      massqc_sample_boxplot(object = log(object)[, 1:30],
+      massqc_sample_boxplot(object = log(object)[, seq_len(30)],
                             color_by = ifelse(any(
                               colnames(object@sample_info) == "batch"
                             ), "batch", "class")) +
@@ -326,7 +327,7 @@ massqc_report = function(object,
       )
   } else{
     plot =
-      massqc_sample_correlation(object = object[1:100]) +
+      massqc_sample_correlation(object = object[seq_len(100)]) +
       labs(title = ifelse(ncol(object) > 100, "First 100 samples", ""))
   }
   
@@ -349,7 +350,7 @@ massqc_report = function(object,
   ###PCA
   cat("PCA score plot.\n")
   object2 = object
-  object2@expression_data = 
+  object2@expression_data =
     as.data.frame(scale(log(object2@expression_data)))
   plot =
     massqc_pca(
@@ -410,4 +411,3 @@ massqc_report = function(object,
     force = TRUE
   )
 }
-

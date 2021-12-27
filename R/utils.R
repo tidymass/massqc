@@ -28,6 +28,7 @@ text_col <- function(x) {
 #' List all packages in the massqc
 #'
 #' @param include_self Include massqc in the list?
+#' @return massqc_packages
 #' @export
 
 massqc_packages <- function(include_self = TRUE) {

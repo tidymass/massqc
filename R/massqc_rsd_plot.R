@@ -131,7 +131,8 @@ massqc_rsd_plot = function(object,
   if (color_by == "no") {
     plot =
       plot +
-      ggplot2::geom_point(aes(size = rsd), size = point_size, alpha = point_alpha)
+      ggplot2::geom_point(aes(size = rsd), 
+                          size = point_size, alpha = point_alpha)
   } else{
     plot =
       plot +
@@ -171,36 +172,36 @@ massqc_rsd_plot = function(object,
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
-#' 
+#'
 #' object =
 #'   create_mass_dataset(
 #'     expression_data = expression_data,
 #'     sample_info = sample_info,
 #'     variable_info = variable_info
 #'   )
-#' 
+#'
 #' massqc_cumulative_rsd_plot(object, rsd_cutoff = 30, color = "blue")
-#' 
+#'
 #' object1 =
 #'   object %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(class == "QC")
-#' 
+#'
 #' object2 =
 #'   object %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(class == "Subject")
-#' 
+#'
 #' massqc_cumulative_rsd_plot(object1, object2,
 #'                            title = c("QC", "Subject")) +
 #'   ggsci::scale_color_lancet()
-#' 
+#'
 #' massqc_cumulative_rsd_plot(object1,
 #'                            object2,
 #'                            rsd_cutoff = 30,
 #'                            title = c("QC", "Subject")) +
 #'   ggsci::scale_color_lancet()
-#' 
+#'
 #' massqc_cumulative_rsd_plot(
 #'   object1,
 #'   title = c("QC"),
@@ -220,7 +221,7 @@ massqc_cumulative_rsd_plot = function(...,
                                       color) {
   object = list(...)
   if (missing(title)) {
-    title = paste("object", 1:length(object), sep = "_")
+    title = paste("object", seq_along(object), sep = "_")
   } else{
     if (length(title) != length(object)) {
       stop("objects should be same length with title.\n")

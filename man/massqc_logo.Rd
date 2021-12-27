@@ -6,6 +6,9 @@
 \usage{
 massqc_logo()
 }
+\value{
+logo
+}
 \description{
 massqc_logo
 }
