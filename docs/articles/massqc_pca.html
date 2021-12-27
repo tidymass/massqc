@@ -34,6 +34,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -46,18 +48,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massqc</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Under development">0.0.1</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Help document
@@ -66,6 +62,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/massqc_install.html">Install massqc</a>
+    </li>
+    <li>
       <a href="../articles/massqc_pca.html">PCA analysis shows the quality</a>
     </li>
     <li>
@@ -85,7 +84,8 @@
       <a href="../articles/version_0_9_2.html">Version 0.9.2</a>
     </li>
     <li class="divider">
-    <li>
+    </li>
+<li>
       <a href="../news/index.html">Change log</a>
     </li>
   </ul>
@@ -93,19 +93,16 @@
 <li>
   <a href="../articles/contact_us.html">Contact us</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/tidymass/massqc/">
+  <a href="https://github.com/tidymass/massqc/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990">
+  <a href="https://twitter.com/JasperShen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -126,123 +123,123 @@
 
       
 
-      </header><script src="massqc_pca_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>PCA analysis shows the quality</h1>
-                        <h4 class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="uri">https://www.shenxt.info/</a>)</h4>
+                        <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 class="date">Created on 2021-12-04 and updated on 2021-12-22</h4>
+            <h4 data-toc-skip class="date">Created on 2021-12-04 and updated on 2021-12-26</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/tidymass/massqc/blob/master/vignettes/massqc_pca.Rmd"><code>vignettes/massqc_pca.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidymass/massqc/blob/HEAD/vignettes/massqc_pca.Rmd" class="external-link"><code>vignettes/massqc_pca.Rmd</code></a></small>
       <div class="hidden name"><code>massqc_pca.Rmd</code></div>
 
     </div>
 
     
     
-<div id="pca-2d-plot" class="section level1">
-<h1 class="hasAnchor">
-<a href="#pca-2d-plot" class="anchor"></a><strong>PCA 2D plot</strong>
+<div class="section level1">
+<h1 id="pca-2d-plot">
+<strong>PCA 2D plot</strong><a class="anchor" aria-label="anchor" href="#pca-2d-plot"></a>
 </h1>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massqc">massqc</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"sample_info"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"expression_data"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"variable_info"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massqc" class="external-link">massqc</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span>, package <span class="op">=</span> <span class="st">"massdataset"</span><span class="op">)</span>
 <span class="va">object</span> <span class="op">=</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html">create_mass_dataset</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span>
     expression_data <span class="op">=</span> <span class="va">expression_data</span>,
     sample_info <span class="op">=</span> <span class="va">sample_info</span>,
     variable_info <span class="op">=</span> <span class="va">variable_info</span>
   <span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-1.png" width="100%"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-2.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">###scale and then PCA</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-3.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co">###log scale and then PCA</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">log</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">log</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-4.png" width="100%"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span>, frame <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-5.png" width="100%"></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span>, frame <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sample_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sample_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-6.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca.html">massqc_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span>, frame <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span>, <span class="va">sample_id</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html" class="external-link">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"QC"</span>, <span class="va">sample_id</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-3-7.png" width="100%"></p>
 </div>
-<div id="pca-1d-plot" class="section level1">
-<h1 class="hasAnchor">
-<a href="#pca-1d-plot" class="anchor"></a><strong>PCA 1D plot</strong>
+<div class="section level1">
+<h1 id="pca-1d-plot">
+<strong>PCA 1D plot</strong><a class="anchor" aria-label="anchor" href="#pca-1d-plot"></a>
 </h1>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">####only show the PC1</span>
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca_pc1.html">massqc_pca_pc1</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca_pc1.html">massqc_pca_pc1</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-4-2.png" width="100%"></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca_pc1.html">massqc_pca_pc1</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-4-3.png" width="100%"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca_pc1.html">massqc_pca_pc1</a></span><span class="op">(</span>
     color_by <span class="op">=</span> <span class="st">"class"</span>,
     order_by <span class="op">=</span> <span class="st">"injection.order"</span>,
     point_alpha <span class="op">=</span> <span class="fl">1</span>,
     point_size <span class="op">=</span> <span class="fl">5</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-4-4.png" width="100%"></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
-<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+<span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu"><a href="../reference/massqc_pca_pc1.html">massqc_pca_pc1</a></span><span class="op">(</span>
     color_by <span class="op">=</span> <span class="st">"class"</span>,
     order_by <span class="op">=</span> <span class="st">"injection.order"</span>,
@@ -250,7 +247,7 @@
     point_size <span class="op">=</span> <span class="fl">5</span>, 
     desc <span class="op">=</span> <span class="cn">TRUE</span>
   <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="massqc_pca_files/figure-html/unnamed-chunk-4-5.png" width="100%"></p>
 </div>
   </div>
@@ -266,11 +263,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://www.shenxt.info/">Xiaotao Shen</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://www.shenxt.info/" class="external-link">Xiaotao Shen</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>

@@ -34,6 +34,8 @@ navbar:
     articles:
       text: Help document
       menu:
+      - text: Install massqc
+        href: articles/massqc_install.html
       - text: PCA analysis shows the quality
         href: articles/massqc_pca.html
       - text: Examples

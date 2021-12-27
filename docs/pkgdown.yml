@@ -1,12 +1,13 @@
 pandoc: 2.11.4
-pkgdown: 1.6.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
   example: example.html
+  massqc_install: massqc_install.html
   massqc_pca: massqc_pca.html
-last_built: 2021-12-23T07:47Z
+last_built: 2021-12-27T05:33Z
 urls:
-  reference: https://tidymass.github.io/massqc//reference
-  article: https://tidymass.github.io/massqc//articles
+  reference: https://tidymass.github.io/massqc/reference
+  article: https://tidymass.github.io/massqc/articles
 
