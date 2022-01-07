@@ -1,5 +1,5 @@
 ---
-title: "PCA analysis shows the quality"
+title: "PCA analysis shows the data quality"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **PCA 2D plot**
+# **Data preparation**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
@@ -42,7 +42,10 @@ object =
     sample_info = sample_info,
     variable_info = variable_info
   )
+object
 ```
+
+# **PCA 2D plot**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 
@@ -59,6 +62,7 @@ object %>%
 
 ###log scale and then PCA
 object %>%
+  `+`(1) %>% 
   log %>% 
   scale %>%
   massqc_pca(color_by = "class")
@@ -92,10 +96,14 @@ object %>%
   massqc_pca_pc1(color_by = "class")
 
 object %>%
+  `+`(1) %>% 
+  log() %>% 
   scale %>%
   massqc_pca_pc1(color_by = "class")
 
 object %>%
+  `+`(1) %>% 
+  log() %>% 
   scale %>%
   massqc_pca_pc1(
     color_by = "class",
@@ -106,6 +114,8 @@ object %>%
   ggsci::scale_color_lancet()
 
 object %>%
+  `+`(1) %>% 
+  log() %>% 
   scale %>%
   massqc_pca_pc1(
     color_by = "class",
@@ -118,4 +128,8 @@ object %>%
 
 ```
 
+# **Session information**
 
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```

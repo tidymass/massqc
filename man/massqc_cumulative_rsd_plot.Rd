@@ -2,7 +2,7 @@
 % Please edit documentation in R/massqc_rsd_plot.R
 \name{massqc_cumulative_rsd_plot}
 \alias{massqc_cumulative_rsd_plot}
-\title{massqc_rsd_plot}
+\title{massqc_cumulative_rsd_plot}
 \usage{
 massqc_cumulative_rsd_plot(..., title, rsd_cutoff, color)
 }
@@ -19,7 +19,7 @@ massqc_cumulative_rsd_plot(..., title, rsd_cutoff, color)
 ggplot2 plot.
 }
 \description{
-RSD plot for each variable.
+massqc_cumulative_rsd_plot
 }
 \examples{
 library(massdataset)

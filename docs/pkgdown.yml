@@ -4,9 +4,13 @@ pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
   example: example.html
+  html_qa_report: html_qa_report.html
   massqc_install: massqc_install.html
   massqc_pca: massqc_pca.html
-last_built: 2021-12-27T19:53Z
+  massqc_qc_correlation: massqc_qc_correlation.html
+  massqc_rsd_plot: massqc_rsd_plot.html
+  massqc_sample_boxplot: massqc_sample_boxplot.html
+last_built: 2022-01-07T08:01Z
 urls:
   reference: https://tidymass.github.io/massqc/reference
   article: https://tidymass.github.io/massqc/articles

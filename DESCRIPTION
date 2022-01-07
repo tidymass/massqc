@@ -1,6 +1,6 @@
 Package: massqc
 Type: Package
-Title: Comprehensitive tools for raw metabolomics data processing
+Title: Quality assessment of LC-MS based metabolomics data
 Version: 0.0.1
 Date: 2021-11-30
 Authors@R: c(
@@ -8,7 +8,10 @@ Authors@R: c(
       comment = c(ORCID = "0000-0002-9608-9964")
     )
     )
-Description: This package is used to do quality control of untargeted metabolomics data.
+Description: This package is used to do quality control and assessment of 
+             untargeted metabolomics data. Different criteria are used to do the 
+             data quality assessment. One function can be used to get html QA
+             report.
 LazyData: true
 Depends: R (>= 4.1)
 Imports:

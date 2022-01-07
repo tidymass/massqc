@@ -13,6 +13,9 @@
     <loc>https://tidymass.github.io/massqc/articles/example.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massqc/articles/html_qa_report.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massqc/articles/index.html</loc>
   </url>
   <url>
@@ -20,6 +23,15 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc/articles/massqc_pca.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc/articles/massqc_qc_correlation.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc/articles/massqc_rsd_plot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massqc/articles/massqc_sample_boxplot.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massqc/authors.html</loc>

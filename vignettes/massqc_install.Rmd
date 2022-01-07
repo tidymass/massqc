@@ -27,7 +27,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## **Uninstall tinyTools**
+# **Uninstall tinyTools**
 
 `tinyTools` has been renamed as `tinytools`. So please uninstall it before you install `massqc`. **And don't use it any more.**
 
@@ -47,7 +47,7 @@ remove.packages(pkgs = "tinyTools")
 
 > If there are errors, ignore them.
 
-## **Install massqc from github**
+# **Install massqc from github**
 
 You can just use the `devtools` or `remotes` to install `massqc`. 
 
@@ -98,7 +98,7 @@ GITHUB_PAT=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
 
 And then restart R session and try again.
 
-## **Frequently Asked Questions**
+# **Frequently Asked Questions**
 
 1. Can not install dependent packages `raster` and `Cario`
 
@@ -115,7 +115,7 @@ install.packages("raster")
 install.packages("Cairo")
 ```
 
-## **Session information**
+# **Session information**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 sessionInfo()

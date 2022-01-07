@@ -155,8 +155,8 @@ massqc_rsd_plot = function(object,
 
 
 
-#' @title massqc_rsd_plot
-#' @description RSD plot for each variable.
+#' @title massqc_cumulative_rsd_plot
+#' @description massqc_cumulative_rsd_plot
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@163.com}
 #' @param ... one or more mass_dataset object
