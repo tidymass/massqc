@@ -60,19 +60,25 @@ massqc_report = function(object,
   parameters =
     object@process_info %>%
     lapply(function(x) {
+      if(is.null(names(x@parameter))){
+        names(x@parameter) = paste("parameter", 
+                                   seq_along(x@parameter),
+                                   sep = "_")
+      }
       data.frame(
         pacakge_name = x@pacakge_name,
         function_name = x@function_name,
-        parameter = purrr::map2(names(x@parameter), 
-                                x@parameter, function(name, value) {
-          if (length(value) > 5) {
-            value = head(value, 5)
-            value = paste(c(value, "..."), collapse = ',')
-          } else{
-            value = paste(value, collapse = ',')
-          }
-          paste(name, value, sep = ":")
-        }) %>% unlist(),
+        parameter = purrr::map2(names(x@parameter),
+                                x@parameter,
+                                function(name, value) {
+                                  if (length(value) > 5) {
+                                    value = head(value, 5)
+                                    value = paste(c(value, "..."), collapse = ',')
+                                  } else{
+                                    value = paste(value, collapse = ',')
+                                  }
+                                  paste(name, value, sep = ":")
+                                }) %>% unlist(),
         time = x@time
       )
     }) %>%

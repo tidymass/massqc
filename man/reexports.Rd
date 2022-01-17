@@ -14,6 +14,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{massdataset}{\code{\link[massdataset]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
+  \item{massdataset}{\code{\link[massdataset:summary-mass_dataset]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
 }}
 

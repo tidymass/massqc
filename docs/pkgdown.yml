@@ -1,4 +1,4 @@
-pandoc: 2.11.4
+pandoc: 2.14.0.3
 pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
@@ -10,7 +10,7 @@ articles:
   massqc_qc_correlation: massqc_qc_correlation.html
   massqc_rsd_plot: massqc_rsd_plot.html
   massqc_sample_boxplot: massqc_sample_boxplot.html
-last_built: 2022-01-07T08:01Z
+last_built: 2022-01-17T07:25Z
 urls:
   reference: https://tidymass.github.io/massqc/reference
   article: https://tidymass.github.io/massqc/articles
