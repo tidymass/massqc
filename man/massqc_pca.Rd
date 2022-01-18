@@ -10,6 +10,7 @@ massqc_pca(
   point_alpha = 0.8,
   frame = TRUE,
   frame.type = "norm",
+  line = TRUE,
   ...
 )
 }
@@ -23,6 +24,8 @@ massqc_pca(
 \item{frame}{?ggplot2::autoplot}
 
 \item{frame.type}{?ggplot2::autoplot}
+
+\item{line}{Add lines or not.}
 
 \item{...}{other paramters for ggplot2::autoplot}
 }

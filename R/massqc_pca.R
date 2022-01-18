@@ -7,6 +7,7 @@
 #' @param point_alpha point_alpha
 #' @param frame ?ggplot2::autoplot
 #' @param frame.type ?ggplot2::autoplot
+#' @param line Add lines or not.
 #' @param ... other paramters for ggplot2::autoplot
 #' @return ggplot2 plot.
 #' @export
@@ -57,25 +58,26 @@ massqc_pca = function(object,
                       point_alpha = 0.8,
                       frame = TRUE,
                       frame.type = 'norm',
+                      line = TRUE,
                       ...) {
   massdataset::check_object_class(object = object, class = "mass_dataset")
   
   if (sum(is.na(object@expression_data)) > 0) {
     warning("MVs in you object,
             \nwill remove variables > 50% and imputate with zero.\n")
-    object =
+    object <-
       object %>%
       massdataset::mutate_variable_na_freq()
-    object =
+    object <-
       object %>%
       massdataset::activate_mass_dataset(what = "variable_info") %>%
       dplyr::filter(na_freq < 0.5)
   }
   
-  sample_info = object@sample_info
-  expression_data = object@expression_data
+  sample_info <- object@sample_info
+  expression_data <- object@expression_data
   
-  expression_data =
+  expression_data <-
     expression_data %>%
     apply(1, function(x) {
       x[is.na(x)] = min(x[!is.na(x)])
@@ -84,7 +86,7 @@ massqc_pca = function(object,
     t()
   
   if (missing(color_by)) {
-    color_by = "no"
+    color_by <- "no"
   } else{
     if (all(colnames(object@sample_info) != color_by)) {
       stop("no ", color_by, " in sample_info, please check.\n")
@@ -95,12 +97,12 @@ massqc_pca = function(object,
     warning("no scale for this dataset, try to scale() before pca.\n")
   }
   
-  pca_object = prcomp(x = t(as.matrix(expression_data)),
+  pca_object <- prcomp(x = t(as.matrix(expression_data)),
                       center = FALSE,
                       scale. = FALSE)
   
   if (color_by == "no") {
-    plot =
+    plot <-
       ggfortify:::autoplot.pca_common(
         object = pca_object,
         data = sample_info,
@@ -111,12 +113,12 @@ massqc_pca = function(object,
         frame.type = frame.type,
         ...
       ) +
-      geom_vline(xintercept = 0, linetype = 2) +
-      geom_hline(yintercept = 0, linetype = 2) +
+      # geom_vline(xintercept = 0, linetype = 2) +
+      # geom_hline(yintercept = 0, linetype = 2) +
       theme_bw() +
       theme(panel.grid.minor = element_blank())
   } else{
-    plot =
+    plot <-
       autoplot(
         object = pca_object,
         data = sample_info,
@@ -129,10 +131,17 @@ massqc_pca = function(object,
         frame.type = frame.type,
         ...
       ) +
-      geom_vline(xintercept = 0, linetype = 2) +
-      geom_hline(yintercept = 0, linetype = 2) +
+      # geom_vline(xintercept = 0, linetype = 2) +
+      # geom_hline(yintercept = 0, linetype = 2) +
       theme_bw() +
       theme(panel.grid.minor = element_blank())
+  }
+  
+  if(line){
+    plot <-
+      plot +
+      geom_vline(xintercept = 0, linetype = 2) +
+      geom_hline(yintercept = 0, linetype = 2)
   }
   
   return(plot)
@@ -202,7 +211,7 @@ massqc_pca = function(object,
 #'   ggsci::scale_color_lancet()
 
 
-massqc_pca_pc1 = function(object,
+massqc_pca_pc1 <- function(object,
                           color_by,
                           order_by,
                           point_alpha = 0.8,
@@ -213,19 +222,19 @@ massqc_pca_pc1 = function(object,
   if (sum(is.na(object@expression_data)) > 0) {
     warning("MVs in you object,
             \nwill remove variables > 50% and imputate with zero.\n")
-    object =
+    object <-
       object %>%
       massdataset::mutate_variable_na_freq()
-    object =
+    object <-
       object %>%
       massdataset::activate_mass_dataset(what = "variable_info") %>%
       dplyr::filter(na_freq < 0.5)
   }
   
-  sample_info = object@sample_info
-  expression_data = object@expression_data
+  sample_info <- object@sample_info
+  expression_data <- object@expression_data
   
-  expression_data =
+  expression_data <-
     expression_data %>%
     apply(1, function(x) {
       x[is.na(x)] = min(x[!is.na(x)])
@@ -234,7 +243,7 @@ massqc_pca_pc1 = function(object,
     t()
   
   if (missing(color_by)) {
-    color_by = "no"
+    color_by <- "no"
   } else{
     if (all(colnames(object@sample_info) != color_by)) {
       stop("no ", color_by, " in sample_info, please check.\n")
@@ -242,7 +251,7 @@ massqc_pca_pc1 = function(object,
   }
   
   if (missing(order_by)) {
-    order_by = "sample_id"
+    order_by <- "sample_id"
   } else{
     if (all(colnames(object@sample_info) != order_by) &
         order_by != "na") {
@@ -250,28 +259,28 @@ massqc_pca_pc1 = function(object,
     }
   }
   
-  pca_object = prcomp(x = t(as.matrix(expression_data)),
+  pca_object <- prcomp(x = t(as.matrix(expression_data)),
                       center = FALSE,
                       scale. = FALSE)
-  sample_info =
+  sample_info <-
     data.frame(sample_info, pca_object$x)
   
   if (desc) {
-    temp_data =
+    temp_data <-
       sample_info %>%
       dplyr::arrange(desc(get(order_by))) %>%
       dplyr::mutate(sample_id = factor(sample_id,
                                        levels = sample_id))
     
   } else{
-    temp_data =
+    temp_data <-
       sample_info %>%
       dplyr::arrange(get(order_by)) %>%
       dplyr::mutate(sample_id = factor(sample_id,
                                        levels = sample_id))
   }
   
-  plot =
+  plot <-
     temp_data %>%
     ggplot(aes(sample_id, PC1)) +
     theme_bw() +
@@ -287,12 +296,12 @@ massqc_pca_pc1 = function(object,
   
   
   if (color_by == "no") {
-    plot =
+    plot <-
       plot +
       geom_point(size = point_size,
                  alpha = point_alpha)
   } else{
-    plot =
+    plot <-
       plot +
       ggplot2::geom_point(aes(color = get(color_by)),
                           size = point_size,
