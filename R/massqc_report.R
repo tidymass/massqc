@@ -329,11 +329,12 @@ massqc_report = function(object,
       massqc_sample_correlation(
         object = object %>%
           massdataset::activate_mass_dataset(what = "sample_info") %>%
-          dplyr::filter(class == "QC")
+          dplyr::filter(class == "QC"), method = "circle"
       )
   } else{
     plot =
-      massqc_sample_correlation(object = object[seq_len(100)]) +
+      massqc_sample_correlation(object = object[seq_len(100)],
+                                method = "circle") +
       labs(title = ifelse(ncol(object) > 100, "First 100 samples", ""))
   }
   
@@ -365,7 +366,7 @@ massqc_report = function(object,
         colnames(object@sample_info) == "batch"
       ),
       "batch", "class"),
-      frame = TRUE
+      frame = TRUE, line = FALSE
     )
   cat("PCA done.\n")
   ggplot2::ggsave(
