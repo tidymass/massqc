@@ -82,7 +82,8 @@ massqc_report = function(object,
         time = x@time
       )
     }) %>%
-    dplyr::bind_rows()
+    dplyr::bind_rows() %>% 
+    dplyr::arrange(time)
   
   save(parameters, file = file.path(output_path, "parameters.rda"))
   
