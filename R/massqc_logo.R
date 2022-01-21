@@ -18,7 +18,7 @@
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom readr read_csv cols
 #' @importFrom readxl read_excel
-#' @importFrom tinytools get_os mz_rt_match
+#' @importFrom masstools get_os mz_rt_match
 #' @importFrom magrittr %>%
 #' @importFrom plotly ggplotly
 #' @importFrom BiocGenerics basename
@@ -41,7 +41,7 @@
 
 massqc_logo <- function() {
   cat(crayon::green("Thank you for using massqc_logo!\n"))
-  cat(crayon::green("Version 0.0.1 (2021-11-30)\n"))
+  cat(crayon::green("Version 0.9.1 (2021-11-30)\n"))
   cat(crayon::green("Bug fixing\n"))
   cat(
     crayon::green(
