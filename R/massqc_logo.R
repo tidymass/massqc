@@ -29,6 +29,7 @@
 #' @importFrom stats coefficients lm loess median predict ecdf
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom ggrepel geom_text_repel geom_label_repel
+#' @importFrom massdataset parse_tidymass_parameter
 #' @import ggsci
 #' @import graphics
 #' @import methods
@@ -41,7 +42,7 @@
 
 massqc_logo <- function() {
   cat(crayon::green("Thank you for using massqc_logo!\n"))
-  cat(crayon::green("Version 0.9.1 (2021-11-30)\n"))
+  cat(crayon::green("Version 0.9.2 (2021-11-30)\n"))
   cat(crayon::green("Bug fixing\n"))
   cat(
     crayon::green(
