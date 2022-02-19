@@ -5,9 +5,9 @@
 #' @importFrom Biobase featureData
 #' @importFrom crayon yellow red green bold bgRed
 #' @import ggplot2
-#' @importFrom stringr str_split str_replace_all 
+#' @importFrom stringr str_split str_replace_all
 #' @importFrom stringr str_trim str_detect str_extract
-#' @importFrom dplyr filter select pull everything distinct 
+#' @importFrom dplyr filter select pull everything distinct
 #' @importFrom dplyr one_of left_join mutate bind_cols arrange
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
 #' @importFrom clisymbols symbol
@@ -42,13 +42,9 @@
 
 massqc_logo <- function() {
   cat(crayon::green("Thank you for using massqc_logo!\n"))
-  cat(crayon::green("Version 0.9.2 (2021-11-30)\n"))
+  message(crayon::green("Version", massqc_version, "(", update_date, ')\n'))
   cat(crayon::green("Bug fixing\n"))
-  cat(
-    crayon::green(
-      "More information: searching 'tidymass massqc'.\n"
-    )
-  )
+  cat(crayon::green("More information: searching 'tidymass massqc'.\n"))
   cat(crayon::green(
     c(
       "                           ____   _____ ",
@@ -64,6 +60,8 @@ massqc_logo <- function() {
   ), sep = "\n")
 }
 
+massqc_version = "0.99.3"
+update_date = as.character(Sys.time())
 
 #' # library(cowsay)
 #' #https://onlineasciitools.com/convert-text-to-ascii-art
