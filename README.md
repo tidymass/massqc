@@ -25,10 +25,10 @@ You can install `massqc` from
 
 ``` r
 # Install `massqc` from GitHub
-if(!require(devtools)){
-install.packages("devtools")
+if(!require(remotes)){
+install.packages("remotes")
 }
-devtools::install_github("tidymass/massqc")
+remotes::install_github("tidymass/massqc")
 ```
 
 -----
