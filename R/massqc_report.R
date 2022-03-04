@@ -172,7 +172,6 @@ massqc_report = function(object,
   )
   
   
-  
   ####in samples
   cat("Missing values in all samples.\n")
   plot =

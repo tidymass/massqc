@@ -100,6 +100,8 @@ massqc_rsd_plot = function(object,
                                          levels = variable_id))
   }
   
+  temp_data$rsd[temp_data$rsd < 0] < 0
+  
   plot =
     temp_data %>%
     ggplot2::ggplot(aes(variable_id, rsd)) +
