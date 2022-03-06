@@ -61,7 +61,9 @@ massqc_pca <-
            frame.type = 'norm',
            line = TRUE,
            ...) {
-    massdataset::check_object_class(object = object, class = "mass_dataset")
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
     
     if (sum(is.na(object@expression_data)) > 0) {
       warning("MVs in you object,
@@ -218,7 +220,9 @@ massqc_pca_pc1 <- function(object,
                            point_alpha = 0.8,
                            point_size = 3,
                            desc = FALSE) {
-  massdataset::check_object_class(object = object, class = "mass_dataset")
+  if(!is(object = object, class2 = "mass_dataset")){
+    stop("obejct should be mass_dataset class.\n")
+  }
   
   if (sum(is.na(object@expression_data)) > 0) {
     warning("MVs in you object,

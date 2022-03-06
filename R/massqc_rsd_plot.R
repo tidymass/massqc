@@ -58,7 +58,9 @@ massqc_rsd_plot = function(object,
                            desc = FALSE,
                            point_alpha = 0.8,
                            point_size = 3) {
-  massdataset::check_object_class(object = object, class = "mass_dataset")
+  if(!is(object = object, class2 = "mass_dataset")){
+    stop("obejct should be mass_dataset class.\n")
+  }
   
   object =
     object %>%
@@ -231,7 +233,9 @@ massqc_cumulative_rsd_plot = function(...,
   }
   object %>%
     purrr::walk(function(x) {
-      massdataset::check_object_class(object = x, class = "mass_dataset")
+      if(!is(object = x, class2 = "mass_dataset")){
+        stop("obejct should be mass_dataset class.\n")
+      }
     })
   
   object =

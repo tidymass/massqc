@@ -66,7 +66,9 @@ massqc_sample_boxplot = function(object,
                                  outlier.shape = NA,
                                  point = FALSE,
                                  point_alpha = 0.8) {
-  massdataset::check_object_class(object = object, class = "mass_dataset")
+  if(!is(object = object, class2 = "mass_dataset")){
+    stop("obejct should be mass_dataset class.\n")
+  }
   
   sample_info = object@sample_info
   expression_data = object@expression_data

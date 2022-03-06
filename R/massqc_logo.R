@@ -24,6 +24,7 @@
 #' @importFrom BiocGenerics basename
 #' @importFrom patchwork plot_layout
 #' @importFrom ggcorrplot ggcorrplot
+#' @importFrom grid gpar
 #' @import patchwork
 #' @import ggfortify
 #' @importFrom stats coefficients lm loess median predict ecdf
@@ -60,7 +61,7 @@ massqc_logo <- function() {
   ), sep = "\n")
 }
 
-massqc_version = "0.99.5"
+massqc_version = "0.99.6"
 update_date = as.character(Sys.time())
 
 #' # library(cowsay)

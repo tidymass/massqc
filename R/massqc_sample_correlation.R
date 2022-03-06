@@ -103,7 +103,10 @@ massqc_sample_correlation =
       }
     }
     
-    massdataset::check_object_class(object = object, class = "mass_dataset")
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
+    
     cor_method = match.arg(cor_method)
     method = match.arg(method)
     type = match.arg(type)

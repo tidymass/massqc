@@ -63,7 +63,9 @@ show_missing_values =
            row_names_side = "right",
            percentage = FALSE,
            ...) {
-    check_object_class(object = object, class = "mass_dataset")
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
     if (missing(column_names_rot)) {
       column_names_rot = 45
     }
@@ -106,20 +108,20 @@ show_missing_values =
           show_column_names = show_column_names,
           column_names_rot = 45,
           col = colors,
-          rect_gp = gpar(col = cell_color),
+          rect_gp = grid::gpar(col = cell_color),
           show_heatmap_legend = FALSE,
           row_names_side = row_names_side,
           top_annotation =
             ComplexHeatmap::columnAnnotation("MV" = ComplexHeatmap::anno_barplot(
               x = sample_na,
-              gp = gpar(col = "black",
+              gp = grid::gpar(col = "black",
                         fill = ggsci::pal_lancet()(n = 9)[4])
             ),
             name = ifelse(percentage, "MV(%)", "MV number")), 
           right_annotation = 
             ComplexHeatmap::rowAnnotation("MV" = ComplexHeatmap::anno_barplot(
               x = variable_na,
-              gp = gpar(col = ggsci::pal_lancet()(n = 9)[2],
+              gp = grid::gpar(col = ggsci::pal_lancet()(n = 9)[2],
                         fill = ggsci::pal_lancet()(n = 9)[2])
             ), name = ifelse(percentage, "MV(%)", "MV number"))
         ) 
@@ -171,7 +173,9 @@ show_sample_missing_values =
            order_by,
            percentage = FALSE,
            desc = FALSE) {
-    check_object_class(object = object, class = "mass_dataset")
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
     
     if (missing(color_by)) {
       color_by = "no"
@@ -314,7 +318,9 @@ show_variable_missing_values =
            show_x_text = FALSE,
            show_x_ticks = FALSE,
            desc = FALSE) {
-    check_object_class(object = object, class = "mass_dataset")
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
     
     if (missing(color_by)) {
       color_by = "no"

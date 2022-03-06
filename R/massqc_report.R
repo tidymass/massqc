@@ -33,8 +33,10 @@ massqc_report <-
            type = c("html", "pdf", "all")) {
     dir.create(path, showWarnings = FALSE)
     type = match.arg(type)
-    massdataset::check_object_class(object = object, class = "mass_dataset")
-    
+    if(!is(object = object, class2 = "mass_dataset")){
+      stop("obejct should be mass_dataset class.\n")
+    }
+    options(warn = -1)
     ###path
     if (length(grep("Report", dir(path))) > 0) {
       output_path = file.path(path, paste('Report', length(grep(
