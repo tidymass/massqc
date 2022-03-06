@@ -60,7 +60,7 @@ massqc_logo <- function() {
   ), sep = "\n")
 }
 
-massqc_version = "0.99.4"
+massqc_version = "0.99.5"
 update_date = as.character(Sys.time())
 
 #' # library(cowsay)
