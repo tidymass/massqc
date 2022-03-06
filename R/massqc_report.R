@@ -110,7 +110,7 @@ massqc_report <-
     ####missing value
     ####in dataset
     cat("Missing values in dataset.\n")
-    plot =
+    plot <-
       massdataset::show_missing_values(
         object = object,
         show_row_names =
@@ -205,7 +205,7 @@ massqc_report <-
     ###RSD
     cat("RSD for variables.\n")
     if (sum(object@sample_info$class == "QC") >= 3) {
-      plot1 =
+      plot1 <-
         massqc_rsd_plot(
           object = object %>%
             massdataset::activate_mass_dataset(what = "sample_info") %>%

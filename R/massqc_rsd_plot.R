@@ -50,104 +50,107 @@
 
 
 
-massqc_rsd_plot = function(object,
-                           color_by,
-                           order_by = "variable_id",
-                           show_x_text = FALSE,
-                           show_x_ticks = FALSE,
-                           desc = FALSE,
-                           point_alpha = 0.8,
-                           point_size = 3) {
-  if(!is(object = object, class2 = "mass_dataset")){
-    stop("obejct should be mass_dataset class.\n")
-  }
-  
-  object =
-    object %>%
-    massdataset::activate_mass_dataset(what = "variable_info") %>%
-    dplyr::select(-dplyr::contains("rsd")) %>%
-    massdataset::mutate_rsd()
-  
-  variable_info = object@variable_info
-  
-  if (missing(color_by)) {
-    color_by = "no"
-  } else{
-    if (all(colnames(object@variable_info) != color_by)) {
-      stop("no ", color_by, " in variable_info, please check.\n")
+massqc_rsd_plot <-
+  function(object,
+           color_by,
+           order_by = "variable_id",
+           show_x_text = FALSE,
+           show_x_ticks = FALSE,
+           desc = FALSE,
+           point_alpha = 0.8,
+           point_size = 3) {
+    if (!is(object = object, class2 = "mass_dataset")) {
+      stop("obejct should be mass_dataset class.\n")
     }
-  }
-  
-  if (missing(order_by)) {
-    order_by = "variable_id"
-  } else{
-    if (all(colnames(object@variable_info) != order_by) &
-        order_by != "rsd") {
-      stop("no ", order_by, " in variable_info, please check.\n")
-    }
-  }
-  
-  if (desc) {
-    temp_data =
-      variable_info %>%
-      dplyr::arrange(desc(get(order_by))) %>%
-      dplyr::mutate(variable_id = factor(variable_id,
-                                         levels = variable_id))
     
-  } else{
-    temp_data =
-      variable_info %>%
-      dplyr::arrange(get(order_by)) %>%
-      dplyr::mutate(variable_id = factor(variable_id,
-                                         levels = variable_id))
-  }
-  
-  temp_data$rsd[temp_data$rsd < 0] < 0
-  
-  plot =
-    temp_data %>%
-    ggplot2::ggplot(aes(variable_id, rsd)) +
-    guides(color = guide_legend(title = color_by),
-           size = guide_legend(title = "RSD (%)")) +
-    labs(x = "",
-         y = "RSD (%)") +
-    theme_bw() +
-    theme(panel.grid = element_blank(),
-          axis.text.x = element_text(
-            angle = 45,
-            hjust = 1,
-            vjust = 1
-          ))
-  
-  if (!show_x_text) {
+    object <-
+      object %>%
+      massdataset::activate_mass_dataset(what = "variable_info") %>%
+      dplyr::select(-dplyr::contains("rsd")) %>%
+      massdataset::mutate_rsd()
+    
+    object@variable_info$rsd[object@variable_info$rsd < 0] <- 0
+    
+    variable_info <- object@variable_info
+    
+    if (missing(color_by)) {
+      color_by <- "no"
+    } else{
+      if (all(colnames(object@variable_info) != color_by)) {
+        stop("no ", color_by, " in variable_info, please check.\n")
+      }
+    }
+    
+    if (missing(order_by)) {
+      order_by <- "variable_id"
+    } else{
+      if (all(colnames(object@variable_info) != order_by) &
+          order_by != "rsd") {
+        stop("no ", order_by, " in variable_info, please check.\n")
+      }
+    }
+    
+    if (desc) {
+      temp_data <-
+        variable_info %>%
+        dplyr::arrange(desc(get(order_by))) %>%
+        dplyr::mutate(variable_id = factor(variable_id,
+                                           levels = variable_id))
+      
+    } else{
+      temp_data =
+        variable_info %>%
+        dplyr::arrange(get(order_by)) %>%
+        dplyr::mutate(variable_id = factor(variable_id,
+                                           levels = variable_id))
+    }
+    
+    temp_data$rsd[temp_data$rsd < 0] < 0
+    
     plot =
-      plot +
-      theme(axis.text.x = element_blank()) +
-      labs(x = "Variables")
+      temp_data %>%
+      ggplot2::ggplot(aes(variable_id, rsd)) +
+      guides(color = guide_legend(title = color_by),
+             size = guide_legend(title = "RSD (%)")) +
+      labs(x = "",
+           y = "RSD (%)") +
+      theme_bw() +
+      theme(panel.grid = element_blank(),
+            axis.text.x = element_text(
+              angle = 45,
+              hjust = 1,
+              vjust = 1
+            ))
+    
+    if (!show_x_text) {
+      plot =
+        plot +
+        theme(axis.text.x = element_blank()) +
+        labs(x = "Variables")
+    }
+    
+    if (!show_x_ticks) {
+      plot =
+        plot +
+        theme(axis.ticks.x = element_blank())
+    }
+    
+    if (color_by == "no") {
+      plot =
+        plot +
+        ggplot2::geom_point(aes(size = rsd),
+                            size = point_size, alpha = point_alpha)
+    } else{
+      plot =
+        plot +
+        ggplot2::geom_point(aes(color = get(color_by)),
+                            size = point_size, alpha = point_alpha) +
+        guides(color = guide_legend(title = color_by))
+    }
+    
+    
+    return(plot)
   }
-  
-  if (!show_x_ticks) {
-    plot =
-      plot +
-      theme(axis.ticks.x = element_blank())
-  }
-  
-  if (color_by == "no") {
-    plot =
-      plot +
-      ggplot2::geom_point(aes(size = rsd), 
-                          size = point_size, alpha = point_alpha)
-  } else{
-    plot =
-      plot +
-      ggplot2::geom_point(aes(color = get(color_by)),
-                          size = point_size, alpha = point_alpha) +
-      guides(color = guide_legend(title = color_by))
-  }
-  
-  
-  return(plot)
-}
 
 
 
@@ -233,7 +236,7 @@ massqc_cumulative_rsd_plot = function(...,
   }
   object %>%
     purrr::walk(function(x) {
-      if(!is(object = x, class2 = "mass_dataset")){
+      if (!is(object = x, class2 = "mass_dataset")) {
         stop("obejct should be mass_dataset class.\n")
       }
     })
