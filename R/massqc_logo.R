@@ -30,7 +30,8 @@
 #' @importFrom stats coefficients lm loess median predict ecdf
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom ggrepel geom_text_repel geom_label_repel
-#' @importFrom massdataset parse_tidymass_parameter
+#' @importFrom massdataset parse_tidymass_parameter get_mv_number activate_mass_dataset mutate_rsd 
+#' @importFrom massdataset show_missing_values show_sample_missing_values show_variable_missing_values
 #' @import ggsci
 #' @import graphics
 #' @import methods

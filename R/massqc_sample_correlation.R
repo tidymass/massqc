@@ -111,7 +111,7 @@ massqc_sample_correlation =
     method = match.arg(method)
     type = match.arg(type)
     insig = match.arg(insig)
-    if (get_mv_number(object = object) > 0) {
+    if (massdataset::get_mv_number(object = object) > 0) {
       warning("NA will be set as 0.\n")
     }
     
