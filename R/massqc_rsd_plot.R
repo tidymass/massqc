@@ -98,7 +98,7 @@ massqc_rsd_plot <-
                                            levels = variable_id))
       
     } else{
-      temp_data =
+      temp_data <-
         variable_info %>%
         dplyr::arrange(get(order_by)) %>%
         dplyr::mutate(variable_id = factor(variable_id,
