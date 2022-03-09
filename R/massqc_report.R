@@ -174,7 +174,6 @@ massqc_report <-
       dpi = 600
     )
     
-    
     ####in samples
     cat("Missing values in all samples.\n")
     plot <-
@@ -200,7 +199,6 @@ massqc_report <-
       height = 6,
       dpi = 600
     )
-    
     
     ###RSD
     cat("RSD for variables.\n")

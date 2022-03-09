@@ -1,0 +1,6 @@
+library(testthat)
+library(massqc)
+library(massdataset)
+library(magrittr)
+library(dplyr)
+test_check("massqc")

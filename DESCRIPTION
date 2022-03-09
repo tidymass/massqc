@@ -54,7 +54,8 @@ Suggests:
     knitr,
     rmarkdown,
     BiocStyle,
-    RUnit
+    RUnit,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Note:
 biocViews: Metabolomics, MassSpectrometry, QualityControl
@@ -62,3 +63,4 @@ Encoding: UTF-8
 Remotes: 
     gitlab::jaspershen/masstools,
     gitlab::jaspershen/massdataset
+Config/testthat/edition: 3
