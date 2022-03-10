@@ -3,6 +3,12 @@ title: "PCA analysis shows the data quality"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
+opengraph:
+  image: 
+    src: "https://example.com/pkg/batpig.png"
+  twitter:
+    card: summary
+    creator: "@xiaotaoshen1990"
 output:
   html_document:
     df_print: paged

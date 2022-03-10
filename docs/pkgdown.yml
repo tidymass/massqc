@@ -3,6 +3,7 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
+  massqc.template: demo_data/Report/massqc.template.html
   example: example.html
   html_qa_report: html_qa_report.html
   massqc_install: massqc_install.html
@@ -10,7 +11,7 @@ articles:
   massqc_qc_correlation: massqc_qc_correlation.html
   massqc_rsd_plot: massqc_rsd_plot.html
   massqc_sample_boxplot: massqc_sample_boxplot.html
-last_built: 2022-02-20T01:08Z
+last_built: 2022-03-10T07:03Z
 urls:
   reference: https://tidymass.github.io/massqc/reference
   article: https://tidymass.github.io/massqc/articles
