@@ -27,43 +27,25 @@ knitr::opts_chunk$set(
 )
 ```
 
-# **Uninstall tinyTools**
+# **Install massqc from GitLab**
 
-`tinyTools` has been renamed as `tinytools`. So please uninstall it before you install `massqc`. **And don't use it any more.**
-
-1. detach it by:
+You can just use the `remotes` to install `massqc`. 
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-detach("package:tinyTools")
+remotes::install_gitlab("jaspershen/massqc", dependencies = TRUE)
 ```
 
-2. Remove it by:
+During the installation, it will ask if you want to update some packages for few times, just press `enter` key to skip it.
+
+# **Install massqc from GitHub**
+
+You can just use the `remotes` to install `massqc`. 
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-remove.packages(pkgs = "tinyTools")
+remotes::install_github("tidymass/massqc", dependencies = TRUE)
 ```
 
-3. Restart your R session. 
-
-> If there are errors, ignore them.
-
-# **Install massqc from github**
-
-You can just use the `devtools` or `remotes` to install `massqc`. 
-
-Please update `devtools` first and then restart your r session.
-
-```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-install.packages("devtools")
-```
-
-Then install `massqc`:
-
-```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-devtools::install_github("tidymass/massqc", dependencies = TRUE)
-```
-
-In the installation, it will ask if you want to update some packages for few times, just press `enter` key to skip it.
+During the installation, it will ask if you want to update some packages for few times, just press `enter` key to skip it.
 
 If there is a error like below:
 

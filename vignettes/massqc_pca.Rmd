@@ -11,6 +11,7 @@ opengraph:
     creator: "@xiaotaoshen1990"
 output:
   html_document:
+    number_sections: true
     df_print: paged
     toc: no
   pdf_document:

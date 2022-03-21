@@ -2,21 +2,21 @@
   "index_name": "massqc",
   "start_urls": [
     {
-      "url": "https://tidymass.github.io/massqc/index.html",
+      "url": "https://massqc.tidymass.org/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massqc/reference",
+      "url": "https://massqc.tidymass.org/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massqc/articles",
+      "url": "https://massqc.tidymass.org/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://tidymass.github.io/massqc/sitemap.xml"
+    "https://massqc.tidymass.org/sitemap.xml"
   ],
   "selectors": {
     "homepage": {

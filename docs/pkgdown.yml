@@ -11,8 +11,8 @@ articles:
   massqc_qc_correlation: massqc_qc_correlation.html
   massqc_rsd_plot: massqc_rsd_plot.html
   massqc_sample_boxplot: massqc_sample_boxplot.html
-last_built: 2022-03-10T07:03Z
+last_built: 2022-03-21T18:22Z
 urls:
-  reference: https://tidymass.github.io/massqc/reference
-  article: https://tidymass.github.io/massqc/articles
+  reference: https://massqc.tidymass.org/reference
+  article: https://massqc.tidymass.org/articles
 
