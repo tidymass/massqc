@@ -18,14 +18,18 @@ processing and analysis.
 
 # **Installation**
 
-You can install `massqc` from
-[Github](https://github.com/tidymass/massqc).
+You can install `massqc` from [GitLab](https://gitlab.com/jaspershen/massqc)
 
 ``` r
-# Install `massqc` from GitHub
 if(!require(remotes)){
 install.packages("remotes")
 }
+remotes::install_gitlab("jaspershen/massqc")
+```
+
+or [GitHub](https://github.com/tidymass/massqc)
+
+``` r
 remotes::install_github("tidymass/massqc")
 ```
 
@@ -53,7 +57,7 @@ CA 94304](https://www.google.com/maps/place/Alway+Building/@37.4322345,-122.1770
 
 # **Citation**
 
-If you use `masscleaner` in you publication, please cite this publication:
+If you use `massqc` in you publication, please cite this publication:
 
 TidyMass: An Object-oriented Reproducible Analysis Framework for LC-MS Data.
 
