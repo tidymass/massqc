@@ -30,7 +30,7 @@
 #' @importFrom stats coefficients lm loess median predict ecdf
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom ggrepel geom_text_repel geom_label_repel
-#' @importFrom massdataset parse_tidymass_parameter get_mv_number activate_mass_dataset mutate_rsd 
+#' @importFrom massdataset parse_tidymass_parameter get_mv_number activate_mass_dataset mutate_rsd
 #' @importFrom massdataset show_missing_values show_sample_missing_values show_variable_missing_values
 #' @import ggsci
 #' @import graphics
@@ -62,8 +62,10 @@ massqc_logo <- function() {
   ), sep = "\n")
 }
 
-massqc_version = "0.99.7"
-update_date = as.character(Sys.time())
+massqc_version <-
+  utils::packageVersion(pkg = "massqc")
+update_date <-
+  as.character(Sys.time())
 
 #' # library(cowsay)
 #' #https://onlineasciitools.com/convert-text-to-ascii-art

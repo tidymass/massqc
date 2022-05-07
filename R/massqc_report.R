@@ -296,7 +296,7 @@ massqc_report <-
     
     ggplot2::ggsave(
       filename = file.path(output_path, "sample_box.pdf"),
-      plot = plot2,
+      plot = plot,
       width = 8,
       height = 6,
       dpi = 600
