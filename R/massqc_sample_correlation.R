@@ -33,7 +33,6 @@
 #' @export
 #' @examples
 #' library(massdataset)
-#' library(tidyverse)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")

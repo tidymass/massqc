@@ -5,3 +5,7 @@
 # massqc 1.00.1
 
 * Fix bugs.
+
+# massqc 1.0.2
+
+* Fix bugs.

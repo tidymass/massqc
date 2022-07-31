@@ -41,7 +41,6 @@ RSD plot for each variable.
 \examples{
 library(massdataset)
 library(ggplot2)
-library(tidyverse)
 data("expression_data")
 data("sample_info")
 data("variable_info")

@@ -2,26 +2,16 @@
 #' @description massqc_logo
 #' @author Xiaotao Shen
 #' \email{shenxt@@stanford.edu}
-#' @importFrom Biobase featureData
 #' @importFrom crayon yellow red green bold bgRed
 #' @import ggplot2
-#' @importFrom stringr str_split str_replace_all
-#' @importFrom stringr str_trim str_detect str_extract
 #' @importFrom dplyr filter select pull everything distinct
 #' @importFrom dplyr one_of left_join mutate bind_cols arrange
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
-#' @importFrom clisymbols symbol
 #' @importFrom cli rule col_cyan tree
 #' @importFrom utils packageVersion object.size write.csv tail head
 #' @importFrom purrr map map2
-#' @importFrom plyr dlply .
-#' @importFrom RColorBrewer brewer.pal
-#' @importFrom readr read_csv cols
-#' @importFrom readxl read_excel
 #' @importFrom masstools get_os
 #' @importFrom magrittr %>%
-#' @importFrom plotly ggplotly
-#' @importFrom BiocGenerics basename
 #' @importFrom patchwork plot_layout
 #' @importFrom ggcorrplot ggcorrplot
 #' @importFrom grid gpar
@@ -32,11 +22,9 @@
 #' @importFrom ggrepel geom_text_repel geom_label_repel
 #' @importFrom massdataset parse_tidymass_parameter get_mv_number activate_mass_dataset mutate_rsd
 #' @importFrom massdataset show_missing_values show_sample_missing_values show_variable_missing_values
+#' @importFrom grDevices grey
+#' @importFrom tidyr pivot_longer
 #' @import ggsci
-#' @import graphics
-#' @import methods
-#' @import pander
-#' @import tidyverse
 #' @export
 #' @return logo
 #' @examples

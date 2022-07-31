@@ -1,7 +1,7 @@
 Package: massqc
 Type: Package
 Title: Quality assessment of LC-MS based metabolomics data
-Version: 1.00.1
+Version: 1.0.2
 Date: 2021-11-30
 Authors@R: c(
     person("Xiaotao", "Shen", , "shenxt1990@163.com", role = c("aut", "cre"), 
@@ -17,39 +17,26 @@ Depends: R (>= 4.1)
 Imports:
     cli,
     crayon,
-    clisymbols,
     dplyr,
     ggplot2,
     ggsci,
     ggfortify,
-    graphics,
     grDevices,
     magrittr,
-    plyr,
     purrr,
     patchwork,
-    methods,
-    pander,
     utils,
     stats,
-    readr,
-    readxl,
-    RColorBrewer,
-    plotly,
-    stringr,
     tibble,
     tidyr,
     masstools,
     massdataset,
-    Biobase,
     rstudioapi,
-    BiocGenerics,
     ggrepel,
-    ggcorrplot,
-    tidyverse
+    ggcorrplot
 License: GPL-2 | file LICENSE
 URL: https://github.com/tidymass/massqc
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Suggests: 
     knitr,
     rmarkdown,

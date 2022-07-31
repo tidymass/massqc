@@ -15,7 +15,6 @@
 #' @examples
 #' library(massdataset)
 #' library(ggplot2)
-#' library(tidyverse)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
@@ -175,7 +174,6 @@ massqc_rsd_plot <-
 #' @examples
 #' library(massdataset)
 #' library(ggplot2)
-#' library(tidyverse)
 #' data("expression_data")
 #' data("sample_info")
 #' data("variable_info")
