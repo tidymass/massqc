@@ -7,6 +7,11 @@
 \alias{show_sample_missing_values}
 \alias{show_variable_missing_values}
 \alias{get_mv_number}
+\alias{extract_sample_info}
+\alias{extract_variable_info}
+\alias{extract_expression_data}
+\alias{extract_process_info}
+\alias{show_mz_rt_plot}
 \alias{\%>\%}
 \title{Objects exported from other packages}
 \keyword{internal}
@@ -17,6 +22,6 @@ below to see their documentation.
 \describe{
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{massdataset}{\code{\link[massdataset:summary-mass_dataset]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
+  \item{massdataset}{\code{\link[massdataset:extract-mass_dataset]{extract_expression_data}}, \code{\link[massdataset:extract-mass_dataset]{extract_process_info}}, \code{\link[massdataset:extract-mass_dataset]{extract_sample_info}}, \code{\link[massdataset:extract-mass_dataset]{extract_variable_info}}, \code{\link[massdataset:summary-mass_dataset]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_mz_rt_plot}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
 }}
 

@@ -9,3 +9,7 @@
 # massqc 1.0.2
 
 * Fix bugs.
+
+# massqc 1.0.3
+
+* Improved massqc_report function

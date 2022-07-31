@@ -33,7 +33,7 @@ massqc_report <-
            type = c("html", "pdf", "all")) {
     dir.create(path, showWarnings = FALSE)
     type = match.arg(type)
-    if(!is(object = object, class2 = "mass_dataset")){
+    if (!is(object = object, class2 = "mass_dataset")) {
       stop("obejct should be mass_dataset class.\n")
     }
     options(warn = -1)
@@ -49,7 +49,7 @@ massqc_report <-
     # dir.create(output_path, showWarnings = FALSE)
     
     ####get the template
-    cat("Get report template.\n")
+    message("Get report template.")
     rmarkdown::draft(
       file = output_path,
       template = "massqc",
@@ -59,12 +59,12 @@ massqc_report <-
     )
     
     ###parameters
-    cat("Parameters.\n")
+    message("Parameters.")
     parameters <-
-      object@process_info %>%
+      massdataset::extract_process_info(object) %>%
       lapply(function(x) {
         if (length(x) == 1) {
-          parse_tidymass_parameter(object = x)
+          massdataset::parse_tidymass_parameter(object = x)
         } else{
           x %>%
             lapply(function(y) {
@@ -79,7 +79,7 @@ massqc_report <-
     save(parameters, file = file.path(output_path, "parameters.rda"))
     
     ####sample information
-    cat("Sample infromation.\n")
+    message("Sample infromation.")
     save(object, file = file.path(output_path, "object.rda"))
     
     if (nrow(object) >= 1000) {
@@ -88,7 +88,7 @@ massqc_report <-
       hex = FALSE
     }
     
-    plot =
+    plot <-
       massdataset::show_mz_rt_plot(object = log(object), hex = hex)
     
     ggplot2::ggsave(
@@ -109,7 +109,7 @@ massqc_report <-
     
     ####missing value
     ####in dataset
-    cat("Missing values in dataset.\n")
+    message("Missing values in dataset.")
     plot <-
       massdataset::show_missing_values(
         object = object,
@@ -136,7 +136,7 @@ massqc_report <-
     )
     
     ####in variables
-    cat("Missing values in all variables.\n")
+    message("Missing values in all variables.")
     if (nrow(object) > 10000) {
       plot <-
         massdataset::show_variable_missing_values(
@@ -175,7 +175,7 @@ massqc_report <-
     )
     
     ####in samples
-    cat("Missing values in all samples.\n")
+    message("Missing values in all samples.")
     plot <-
       massdataset::show_sample_missing_values(
         object = object,
@@ -201,7 +201,7 @@ massqc_report <-
     )
     
     ###RSD
-    cat("RSD for variables.\n")
+    message("RSD for variables.")
     if (sum(object@sample_info$class == "QC") >= 3) {
       plot1 <-
         massqc_rsd_plot(
@@ -263,7 +263,8 @@ massqc_report <-
       dpi = 600
     )
     
-    plot = plot1 + plot2 + patchwork::plot_layout(nrow = 1)
+    plot <-
+      plot1 + plot2 + patchwork::plot_layout(nrow = 1)
     
     ggplot2::ggsave(
       filename = file.path(output_path, "rsd.png"),
@@ -274,7 +275,7 @@ massqc_report <-
     )
     
     ####sample box plot
-    cat("Intensity for all the variables in all samples.\n")
+    message("Intensity for all the variables in all samples.")
     if (sum(object@sample_info$class == "QC") >= 3) {
       plot <-
         massqc_sample_boxplot(
@@ -294,6 +295,21 @@ massqc_report <-
         labs(title = ifelse(ncol(object) > 30, "First 30 samples", ""))
     }
     
+    if (ncol(object) > 100) {
+      plot <-
+        plot +
+        ggplot2::theme(axis.text.x = element_blank(),
+                       axis.ticks.x = element_blank())
+    } else{
+      plot <-
+        plot +
+        ggplot2::theme(axis.text.x = ggplot2::element_text(
+          angle = 45,
+          hjust = 1,
+          vjust = 1
+        ))
+    }
+    
     ggplot2::ggsave(
       filename = file.path(output_path, "sample_box.pdf"),
       plot = plot,
@@ -311,7 +327,7 @@ massqc_report <-
     )
     
     ####sample correlation
-    cat("Sample correlation.\n")
+    message("Sample correlation.")
     
     if (sum(object@sample_info$class == "QC") >= 3) {
       plot <-
@@ -345,7 +361,15 @@ massqc_report <-
     )
     
     ###PCA
-    cat("PCA score plot.\n")
+    message("PCA score plot.")
+    sample_info <-
+      extract_sample_info(object)
+    if (any(colnames(sample_info) == "batch")) {
+      sample_info$batch <-
+        as.character(sample_info)
+      methods::slot(object, "sample_info") <-
+        sample_info
+    }
     plot <-
       object %>%
       `+`(1) %>%
@@ -358,7 +382,7 @@ massqc_report <-
         frame = TRUE,
         line = FALSE
       )
-    cat("PCA done.\n")
+    message("PCA done.")
     ggplot2::ggsave(
       filename = file.path(output_path, "pca.pdf"),
       plot = plot,
@@ -375,7 +399,7 @@ massqc_report <-
       dpi = 600
     )
     
-    cat("Render report.\n")
+    message("Render report.")
     ##transform rmd to HTML or pdf
     if (type == "html" | type == "all") {
       rmarkdown::render(file.path(output_path, "massqc.template.Rmd"),
@@ -398,7 +422,7 @@ massqc_report <-
     }
     
     ####remove some files
-    cat("Remove some files.\n")
+    message("Remove some files.")
     file = dir(output_path)
     remove_file = grep("png|Rmd|parameters|rda", file, value = TRUE)
     unlink(

@@ -24,6 +24,7 @@
 #' @importFrom massdataset show_missing_values show_sample_missing_values show_variable_missing_values
 #' @importFrom grDevices grey
 #' @importFrom tidyr pivot_longer
+#' @importFrom methods slot
 #' @import ggsci
 #' @export
 #' @return logo
