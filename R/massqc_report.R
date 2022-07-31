@@ -366,7 +366,7 @@ massqc_report <-
       extract_sample_info(object)
     if (any(colnames(sample_info) == "batch")) {
       sample_info$batch <-
-        as.character(sample_info)
+        as.character(sample_info$batch)
       methods::slot(object, "sample_info") <-
         sample_info
     }
