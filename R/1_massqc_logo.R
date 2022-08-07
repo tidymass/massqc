@@ -32,10 +32,9 @@
 #' massqc_logo()
 
 massqc_logo <- function() {
-  cat(crayon::green("Thank you for using massqc_logo!\n"))
-  message(crayon::green("Version", massqc_version, "(", update_date, ')\n'))
-  cat(crayon::green("Bug fixing\n"))
-  cat(crayon::green("More information: searching 'tidymass massqc'.\n"))
+  message(crayon::green("Thank you for using massqc_logo!"))
+  message(crayon::green("Version", massqc_version, "(", update_date, ')'))
+  message(crayon::green("More information: massqc.tidymass.org"))
   cat(crayon::green(
     c(
       "                           ____   _____ ",
@@ -52,7 +51,7 @@ massqc_logo <- function() {
 }
 
 massqc_version <-
-  utils::packageVersion(pkg = "massqc")
+  as.character(utils::packageVersion(pkg = "massqc"))
 update_date <-
   as.character(Sys.time())
 
