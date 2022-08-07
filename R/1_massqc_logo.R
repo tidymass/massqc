@@ -32,10 +32,10 @@
 #' massqc_logo()
 
 massqc_logo <- function() {
-  message(crayon::green("Thank you for using massqc_logo!"))
-  message(crayon::green("Version", massqc_version, "(", update_date, ')'))
-  message(crayon::green("More information: massqc.tidymass.org"))
-  cat(crayon::green(
+  message("Thank you for using massqc!")
+  message("Version", massqc_version, "(", update_date, ')')
+  message("More information: massqc.tidymass.org")
+  cat(
     c(
       "                           ____   _____ ",
       "                          / __ \\ / ____|",
@@ -45,9 +45,9 @@ massqc_logo <- function() {
       " |_| |_| |_|\\__,_|___/___/\\___\\_\\\\_____|",
       "                                        ",
       "                                        "
-    )
-    
-  ), sep = "\n")
+    ),
+    sep = "\n"
+  )
 }
 
 massqc_version <-
