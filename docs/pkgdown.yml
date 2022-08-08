@@ -1,5 +1,5 @@
-pandoc: 2.14.0.3
-pkgdown: 2.0.2
+pandoc: '2.18'
+pkgdown: 2.0.5
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
@@ -11,7 +11,7 @@ articles:
   massqc_qc_correlation: massqc_qc_correlation.html
   massqc_rsd_plot: massqc_rsd_plot.html
   massqc_sample_boxplot: massqc_sample_boxplot.html
-last_built: 2022-03-21T18:22Z
+last_built: 2022-08-08T02:11Z
 urls:
   reference: https://massqc.tidymass.org/reference
   article: https://massqc.tidymass.org/articles

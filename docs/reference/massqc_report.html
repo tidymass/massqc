@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massqc</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.7</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -54,7 +54,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -81,7 +81,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -110,21 +110,28 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">massqc_report</span><span class="op">(</span><span class="va">object</span>, path <span class="op">=</span> <span class="st">"."</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"pdf"</span>, <span class="st">"all"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">massqc_report</span><span class="op">(</span><span class="va">object</span>, path <span class="op">=</span> <span class="st">"."</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"html"</span>, <span class="st">"pdf"</span>, <span class="st">"all"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>tidymass-class object.</p></dd>
+
+
 <dt>path</dt>
 <dd><p>path</p></dd>
+
+
 <dt>type</dt>
 <dd><p>type html, pdf or all.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>reporting result</p>
+    
+
+<p>reporting result</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -134,24 +141,24 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">object</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span></span>
-<span class="r-in">    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
-<span class="r-in">    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
-<span class="r-in">    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
-<span class="r-in">    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
-<span class="r-in">    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="va">object</span></span>
-<span class="r-in"><span class="fu">massqc_report</span><span class="op">(</span><span class="va">object</span>, path <span class="op">=</span> <span class="st">"demo_data"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span></span>
+<span class="r-in"><span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span></span>
+<span class="r-in"><span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">object</span></span></span>
+<span class="r-in"><span><span class="fu">massqc_report</span><span class="op">(</span><span class="va">object</span>, path <span class="op">=</span> <span class="st">"demo_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>

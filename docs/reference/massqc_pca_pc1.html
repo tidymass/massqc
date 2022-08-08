@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massqc</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.7</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -54,7 +54,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -81,7 +81,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -110,34 +110,47 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">massqc_pca_pc1</span><span class="op">(</span>
-  <span class="va">object</span>,
-  <span class="va">color_by</span>,
-  <span class="va">order_by</span>,
-  point_alpha <span class="op">=</span> <span class="fl">0.8</span>,
-  point_size <span class="op">=</span> <span class="fl">3</span>,
-  desc <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">massqc_pca_pc1</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  <span class="va">color_by</span>,</span>
+<span>  <span class="va">order_by</span>,</span>
+<span>  point_alpha <span class="op">=</span> <span class="fl">0.8</span>,</span>
+<span>  point_size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>  desc <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>tidymass-class object.</p></dd>
+
+
 <dt>color_by</dt>
 <dd><p>which column (sample_info) is used to color samples</p></dd>
+
+
 <dt>order_by</dt>
 <dd><p>which column (sample_info) is used to order samples</p></dd>
+
+
 <dt>point_alpha</dt>
 <dd><p>point_alpha</p></dd>
+
+
 <dt>point_size</dt>
 <dd><p>point_size</p></dd>
+
+
 <dt>desc</dt>
 <dd><p>desc</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>ggplot2 plot.</p>
+    
+
+<p>ggplot2 plot.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -147,66 +160,65 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span></span>
-<span class="r-in">    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
-<span class="r-in">    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
-<span class="r-in">    variable_info <span class="op">=</span> <span class="va">variable_info</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">massqc_pca_pc1</span><span class="op">(</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span></span>
+<span class="r-in"><span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span></span>
+<span class="r-in"><span>    variable_info <span class="op">=</span> <span class="va">variable_info</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">massqc_pca_pc1</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>MVs in you object,</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> will remove variables &gt; 50% and imputate with zero.</span>
 <span class="r-plt img"><img src="massqc_pca_pc1-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">massqc_pca_pc1</span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">massqc_pca_pc1</span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>MVs in you object,</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> will remove variables &gt; 50% and imputate with zero.</span>
 <span class="r-plt img"><img src="massqc_pca_pc1-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">massqc_pca_pc1</span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">massqc_pca_pc1</span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"class"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>MVs in you object,</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> will remove variables &gt; 50% and imputate with zero.</span>
 <span class="r-plt img"><img src="massqc_pca_pc1-3.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">massqc_pca_pc1</span><span class="op">(</span></span>
-<span class="r-in">    color_by <span class="op">=</span> <span class="st">"class"</span>,</span>
-<span class="r-in">    order_by <span class="op">=</span> <span class="st">"injection.order"</span>,</span>
-<span class="r-in">    point_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">    point_size <span class="op">=</span> <span class="fl">5</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">massqc_pca_pc1</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    color_by <span class="op">=</span> <span class="st">"class"</span>,</span></span>
+<span class="r-in"><span>    order_by <span class="op">=</span> <span class="st">"injection.order"</span>,</span></span>
+<span class="r-in"><span>    point_alpha <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>    point_size <span class="op">=</span> <span class="fl">5</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>MVs in you object,</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> will remove variables &gt; 50% and imputate with zero.</span>
 <span class="r-plt img"><img src="massqc_pca_pc1-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">massqc_pca_pc1</span><span class="op">(</span></span>
-<span class="r-in">    color_by <span class="op">=</span> <span class="st">"class"</span>,</span>
-<span class="r-in">    order_by <span class="op">=</span> <span class="st">"injection.order"</span>,</span>
-<span class="r-in">    point_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">    point_size <span class="op">=</span> <span class="fl">5</span>,</span>
-<span class="r-in">    desc <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in">  <span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">massqc_pca_pc1</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    color_by <span class="op">=</span> <span class="st">"class"</span>,</span></span>
+<span class="r-in"><span>    order_by <span class="op">=</span> <span class="st">"injection.order"</span>,</span></span>
+<span class="r-in"><span>    point_alpha <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>    point_size <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span>    desc <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html" class="external-link">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>MVs in you object,</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>             </span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> will remove variables &gt; 50% and imputate with zero.</span>
