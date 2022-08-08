@@ -31,7 +31,7 @@ massqc_report <-
   function(object,
            path = ".",
            type = c("html", "pdf", "all")) {
-    dir.create(path, showWarnings = FALSE)
+    dir.create(path, showWarnings = FALSE, recursive = TRUE)
     type = match.arg(type)
     if (!is(object = object, class2 = "mass_dataset")) {
       stop("obejct should be mass_dataset class.\n")
