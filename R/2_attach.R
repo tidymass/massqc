@@ -1,4 +1,4 @@
-core <- c("massdataset", "ggfortify")
+core <- c("massdataset", "ggfortify", "ggplot2", "dplyr", "magrittr", "tidyr", "masstools", "massdataset")
 
 massqc_core_unloaded <- function() {
   search <- paste0("package:", core)
@@ -24,11 +24,11 @@ massqc_attach <- function() {
   if (length(to_load) == 0)
     return(invisible())
   
-  msg(cli::rule(
-    left = crayon::bold("Attaching packages"),
-    right = paste0("massqc ", massqc_package_version("massqc"))
-  ),
-  startup = TRUE)
+  # msg(cli::rule(
+  #   left = crayon::bold("Attaching packages"),
+  #   right = paste0("massqc ", massqc_package_version("massqc"))
+  # ),
+  # startup = TRUE)
   
   versions <-
     vapply(to_load, massqc_package_version, character(1))
@@ -46,7 +46,7 @@ massqc_attach <- function() {
   col1 <- seq_len(length(packages) / 2)
   info <- paste0(packages[col1], "     ", packages[-col1])
   
-  msg(paste(info, collapse = "\n"), startup = TRUE)
+  # msg(paste(info, collapse = "\n"), startup = TRUE)
   
   suppressPackageStartupMessages(lapply(to_load, same_library))
   

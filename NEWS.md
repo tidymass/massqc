@@ -17,3 +17,7 @@
 # massqc 1.0.4 (20220806)
 
 * Fixed bugs.
+
+# massqc 1.0.5
+
+* Fixed bugs.
