@@ -18,13 +18,13 @@ processing and analysis.
 
 # **Installation**
 
-You can install `massqc` from [GitLab](https://gitlab.com/jaspershen/massqc)
+You can install `massqc` from [GitLab](https://gitlab.com/tidymass/massqc)
 
 ``` r
 if(!require(remotes)){
 install.packages("remotes")
 }
-remotes::install_gitlab("jaspershen/massqc")
+remotes::install_gitlab("tidymass/massqc")
 ```
 
 or [GitHub](https://github.com/tidymass/massqc)
