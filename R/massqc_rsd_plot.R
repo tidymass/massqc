@@ -327,10 +327,6 @@ massqc_cumulative_rsd_plot = function(...,
         data = annotate_text,
         show.legend = FALSE
       )
-    
-    
   }
-  
-  
   return(plot)
 }

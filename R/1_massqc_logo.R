@@ -25,7 +25,6 @@
 #' @importFrom grDevices grey
 #' @importFrom tidyr pivot_longer
 #' @importFrom methods slot
-#' @import ggsci
 #' @export
 #' @return logo
 #' @examples
