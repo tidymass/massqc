@@ -116,7 +116,8 @@ massqc_report <-
         show_row_names =
           ifelse(nrow(object) < 20, TRUE, FALSE),
         show_column_names = ifelse(ncol(object) < 20, TRUE, FALSE),
-        percentage = TRUE
+        percentage = TRUE,
+        return_as_ggplot = TRUE
       )
     
     ggplot2::ggsave(

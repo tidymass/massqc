@@ -21,3 +21,7 @@
 # massqc 1.0.5
 
 * Fixed bugs.
+
+# massqc 1.0.7
+
+* Fixed bugs.
