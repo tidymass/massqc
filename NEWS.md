@@ -26,6 +26,6 @@
 
 * Fixed bugs.
 
-# massqc 2025-8-14
+# massqc 2025-08-14
 
 * Fixed bugs by xiaotao.
