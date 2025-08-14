@@ -14,7 +14,7 @@
 
 * Improved massqc_report function
 
-# massqc 1.0.4 (20220806)
+# massqc 1.0.4 (2022-08-06)
 
 * Fixed bugs.
 
