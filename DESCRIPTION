@@ -10,7 +10,7 @@ Authors@R: c(
     )
 Description: This package is used for quality control and assessment of 
              untargeted metabolomics data. Different criteria are used to do the 
-             data quality assessment. One function can be used to get html QA
+             data quality assessment. One function can be used to get HTML QA
              report.
 LazyData: true
 Depends: R (>= 4.1)
