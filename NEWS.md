@@ -25,3 +25,7 @@
 # massqc 1.0.7
 
 * Fixed bugs.
+
+# massqc 2025-8-14
+
+* Fixed bugs by xiaotao.

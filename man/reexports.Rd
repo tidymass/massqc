@@ -22,6 +22,6 @@ below to see their documentation.
 \describe{
   \item{magrittr}{\code{\link[magrittr:pipe]{\%>\%}}}
 
-  \item{massdataset}{\code{\link[massdataset:extract-mass_dataset]{extract_expression_data}}, \code{\link[massdataset:extract-mass_dataset]{extract_process_info}}, \code{\link[massdataset:extract-mass_dataset]{extract_sample_info}}, \code{\link[massdataset:extract-mass_dataset]{extract_variable_info}}, \code{\link[massdataset:summary-mass_dataset]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_mz_rt_plot}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
+  \item{massdataset}{\code{\link[massdataset:mass_dataset-extracting]{extract_expression_data}}, \code{\link[massdataset:mass_dataset-extracting]{extract_process_info}}, \code{\link[massdataset:mass_dataset-extracting]{extract_sample_info}}, \code{\link[massdataset:mass_dataset-extracting]{extract_variable_info}}, \code{\link[massdataset:mass_dataset-summary]{get_mv_number}}, \code{\link[massdataset]{show_missing_values}}, \code{\link[massdataset]{show_mz_rt_plot}}, \code{\link[massdataset]{show_sample_missing_values}}, \code{\link[massdataset]{show_variable_missing_values}}}
 }}
 
